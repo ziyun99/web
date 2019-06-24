@@ -1,0 +1,18 @@
+{
+  "profiles": [
+    {
+      "title": "ME2 v.s. HE2",
+      "date": "23 FEB 2019",
+      "time": "1:30p.m. & 7:00p.m.",
+      "imgSrc": "cd.png"
+    },
+
+    {
+      "title": "Movie Night",
+      "date": "18 MAR 2019",
+      "time": "9:00p.m.",
+      "imgSrc": "movienight.jpg"
+    }
+
+  ]
+}

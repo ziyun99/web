@@ -1,0 +1,403 @@
+doctype html
+html(lang='en')
+  head
+    title Winkel - Free Bootstrap 4 Template by Colorlib
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800', rel='stylesheet')
+    link(rel='stylesheet', href='css/open-iconic-bootstrap.min.css')
+    link(rel='stylesheet', href='css/animate.css')
+    link(rel='stylesheet', href='css/owl.carousel.min.css')
+    link(rel='stylesheet', href='css/owl.theme.default.min.css')
+    link(rel='stylesheet', href='css/magnific-popup.css')
+    link(rel='stylesheet', href='css/aos.css')
+    link(rel='stylesheet', href='css/ionicons.min.css')
+    link(rel='stylesheet', href='css/bootstrap-datepicker.css')
+    link(rel='stylesheet', href='css/jquery.timepicker.css')
+    link(rel='stylesheet', href='css/flaticon.css')
+    link(rel='stylesheet', href='css/icomoon.css')
+    link(rel='stylesheet', href='css/style.css')
+  body.goto-here
+    .py-1.bg-black
+      .container
+        .row.no-gutters.d-flex.align-items-start.align-items-center.px-md-0
+          .col-lg-12.d-block
+            .row.d-flex
+              .col-md.pr-4.d-flex.topper.align-items-center
+                .icon.mr-2.d-flex.justify-content-center.align-items-center
+                  span.icon-phone2
+                span.text + 1235 2355 98
+              .col-md.pr-4.d-flex.topper.align-items-center
+                .icon.mr-2.d-flex.justify-content-center.align-items-center
+                  span.icon-paper-plane
+                span.text youremail@email.com
+              .col-md-5.pr-4.d-flex.topper.align-items-center.text-lg-right
+                span.text 3-5 Business days delivery & Free Returns
+    nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-navbar-light
+      .container
+        a.navbar-brand(href='index.html') Winkel
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#ftco-nav', aria-controls='ftco-nav', aria-expanded='false', aria-label='Toggle navigation')
+          span.oi.oi-menu
+          |  Menu
+        #ftco-nav.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              a.nav-link(href='index.html') Home
+            li.nav-item.dropdown.active
+              a#dropdown04.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Shop
+              .dropdown-menu(aria-labelledby='dropdown04')
+                a.dropdown-item(href='shop.html') Shop
+                a.dropdown-item(href='product-single.html') Single Product
+                a.dropdown-item(href='cart.html') Cart
+                a.dropdown-item(href='checkout.html') Checkout
+            li.nav-item
+              a.nav-link(href='about.html') About
+            li.nav-item
+              a.nav-link(href='blog.html') Blog
+            li.nav-item
+              a.nav-link(href='contact.html') Contact
+            li.nav-item.cta.cta-colored
+              a.nav-link(href='cart.html')
+                span.icon-shopping_cart
+                | [0]
+    // END nav
+    .hero-wrap.hero-bread(style="background-image: url('images/bg_6.jpg');")
+      .container
+        .row.no-gutters.slider-text.align-items-center.justify-content-center
+          .col-md-9.ftco-animate.text-center
+            p.breadcrumbs
+              span.mr-2
+                a(href='index.html') Home
+              span.mr-2
+                a(href='index.html') Product
+              span Product Single
+            h1.mb-0.bread Product Single
+    section.ftco-section
+      .container
+        .row
+          .col-lg-6.mb-5.ftco-animate
+            a.image-popup(href='images/menu-2.jpg')
+              img.img-fluid(src='images/product-1.jpg', alt='Colorlib Template')
+          .col-lg-6.product-details.pl-md-5.ftco-animate
+            h3 Young Woman Wearing Dress
+            .rating.d-flex
+              p.text-left.mr-4
+                a.mr-2(href='#') 5.0
+                a(href='#')
+                  span.ion-ios-star-outline
+                a(href='#')
+                  span.ion-ios-star-outline
+                a(href='#')
+                  span.ion-ios-star-outline
+                a(href='#')
+                  span.ion-ios-star-outline
+                a(href='#')
+                  span.ion-ios-star-outline
+              p.text-left.mr-4
+                a.mr-2(href='#', style='color: #000;')
+                  | 100 
+                  span(style='color: #bbb;') Rating
+              p.text-left
+                a.mr-2(href='#', style='color: #000;')
+                  | 500 
+                  span(style='color: #bbb;') Sold
+            p.price
+              span $120.00
+            p
+              | A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+            p
+              | On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.
+            .row.mt-4
+              .col-md-6
+                .form-group.d-flex
+                  .select-wrap
+                    //- .icon
+                    //-   span.ion-ios-arrow-down
+                    select.form-control(name='', id='')
+                      option(value='') Small
+                      option(value='') Medium
+                      option(value='') Large
+                      option(value='') Extra Large
+              .w-100
+              .input-group.col-md-6.d-flex.mb-3
+                span.input-group-btn.mr-2
+                  button.quantity-left-minus.btn(type='button', data-type='minus', data-field='')
+                    i.ion-ios-remove
+                input#quantity.form-control.input-number(type='text', name='quantity', value='1', min='1', max='100')
+                span.input-group-btn.ml-2
+                  button.quantity-right-plus.btn(type='button', data-type='plus', data-field='')
+                    i.ion-ios-add
+              .w-100
+              .col-md-12
+                p(style='color: #000;') 80 piece available
+            p
+              a.btn.btn-black.py-3.px-5(href='cart.html') Add to Cart
+    section.ftco-section.bg-light
+      .container
+        .row.justify-content-center.mb-3.pb-3
+          .col-md-12.heading-section.text-center.ftco-animate
+            h2.mb-4 Ralated Products
+            p
+              | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia
+      .container
+        .row
+          .col-sm.col-md-6.col-lg.ftco-animate
+            .product
+              a.img-prod(href='#')
+                img.img-fluid(src='images/product-1.jpg', alt='Colorlib Template')
+                span.status 30%
+                .overlay
+              .text.py-3.px-3
+                h3
+                  a(href='#') Floral Jackquard Pullover
+                .d-flex
+                  .pricing
+                    p.price
+                      span.mr-2.price-dc $120.00
+                      span.price-sale $80.00
+                  .rating
+                    p.text-right
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                p.bottom-area.d-flex.px-3
+                  a.add-to-cart.text-center.py-2.mr-1(href='#')
+                    span
+                      | Add to cart 
+                      i.ion-ios-add.ml-1
+                  a.buy-now.text-center.py-2(href='#')
+                    | Buy now
+                    span
+                      i.ion-ios-cart.ml-1
+          .col-sm.col-md-6.col-lg.ftco-animate
+            .product
+              a.img-prod(href='#')
+                img.img-fluid(src='images/product-2.jpg', alt='Colorlib Template')
+                .overlay
+              .text.py-3.px-3
+                h3
+                  a(href='#') Floral Jackquard Pullover
+                .d-flex
+                  .pricing
+                    p.price
+                      span $120.00
+                  .rating
+                    p.text-right
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                p.bottom-area.d-flex.px-3
+                  a.add-to-cart.text-center.py-2.mr-1(href='#')
+                    span
+                      | Add to cart 
+                      i.ion-ios-add.ml-1
+                  a.buy-now.text-center.py-2(href='#')
+                    | Buy now
+                    span
+                      i.ion-ios-cart.ml-1
+          .col-sm.col-md-6.col-lg.ftco-animate
+            .product
+              a.img-prod(href='#')
+                img.img-fluid(src='images/product-3.jpg', alt='Colorlib Template')
+                .overlay
+              .text.py-3.px-3
+                h3
+                  a(href='#') Floral Jackquard Pullover
+                .d-flex
+                  .pricing
+                    p.price
+                      span $120.00
+                  .rating
+                    p.text-right
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                p.bottom-area.d-flex.px-3
+                  a.add-to-cart.text-center.py-2.mr-1(href='#')
+                    span
+                      | Add to cart 
+                      i.ion-ios-add.ml-1
+                  a.buy-now.text-center.py-2(href='#')
+                    | Buy now
+                    span
+                      i.ion-ios-cart.ml-1
+          .col-sm.col-md-6.col-lg.ftco-animate
+            .product
+              a.img-prod(href='#')
+                img.img-fluid(src='images/product-4.jpg', alt='Colorlib Template')
+                .overlay
+              .text.py-3.px-3
+                h3
+                  a(href='#') Floral Jackquard Pullover
+                .d-flex
+                  .pricing
+                    p.price
+                      span $120.00
+                  .rating
+                    p.text-right
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                      a(href='#')
+                        span.ion-ios-star-outline
+                p.bottom-area.d-flex.px-3
+                  a.add-to-cart.text-center.py-2.mr-1(href='#')
+                    span
+                      | Add to cart 
+                      i.ion-ios-add.ml-1
+                  a.buy-now.text-center.py-2(href='#')
+                    | Buy now
+                    span
+                      i.ion-ios-cart.ml-1
+    footer.ftco-footer.bg-light.ftco-section
+      .container
+        .row
+          .mouse
+            a.mouse-icon(href='#')
+              .mouse-wheel
+                span.ion-ios-arrow-up
+        .row.mb-5
+          .col-md
+            .ftco-footer-widget.mb-4
+              h2.ftco-heading-2 Winkel
+              p
+                | Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+              ul.ftco-footer-social.list-unstyled.float-md-left.float-lft.mt-5
+                li.ftco-animate
+                  a(href='#')
+                    span.icon-twitter
+                li.ftco-animate
+                  a(href='#')
+                    span.icon-facebook
+                li.ftco-animate
+                  a(href='#')
+                    span.icon-instagram
+          .col-md
+            .ftco-footer-widget.mb-4.ml-md-5
+              h2.ftco-heading-2 Menu
+              ul.list-unstyled
+                li
+                  a.py-2.d-block(href='#') Shop
+                li
+                  a.py-2.d-block(href='#') About
+                li
+                  a.py-2.d-block(href='#') Journal
+                li
+                  a.py-2.d-block(href='#') Contact Us
+          .col-md-4
+            .ftco-footer-widget.mb-4
+              h2.ftco-heading-2 Help
+              .d-flex
+                ul.list-unstyled.mr-l-5.pr-l-3.mr-4
+                  li
+                    a.py-2.d-block(href='#') Shipping Information
+                  li
+                    a.py-2.d-block(href='#') Returns & Exchange
+                  li
+                    a.py-2.d-block(href='#') Terms & Conditions
+                  li
+                    a.py-2.d-block(href='#') Privacy Policy
+                ul.list-unstyled
+                  li
+                    a.py-2.d-block(href='#') FAQs
+                  li
+                    a.py-2.d-block(href='#') Contact
+          .col-md
+            .ftco-footer-widget.mb-4
+              h2.ftco-heading-2 Have a Questions?
+              .block-23.mb-3
+                ul
+                  li
+                    span.icon.icon-map-marker
+                    span.text 203 Fake St. Mountain View, San Francisco, California, USA
+                  li
+                    a(href='#')
+                      span.icon.icon-phone
+                      span.text +2 392 3929 210
+                  li
+                    a(href='#')
+                      span.icon.icon-envelope
+                      span.text info@yourdomain.com
+        .row
+          .col-md-12.text-center
+            p
+              // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+              | Copyright ©
+              script.
+                document.write(new Date().getFullYear());
+              |  All rights reserved | This template is made with 
+              i.icon-heart.color-danger(aria-hidden='true')
+              |  by 
+              a(href='https://colorlib.com', target='_blank') Colorlib
+              // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+              // loader
+              #ftco-loader.show.fullscreen
+                svg.circular(width='48px', height='48px')
+                  circle.path-bg(cx='24', cy='24', r='22', fill='none', stroke-width='4', stroke='#eeeeee')
+                  circle.path(cx='24', cy='24', r='22', fill='none', stroke-width='4', stroke-miterlimit='10', stroke='#F96D00')
+              script(src='js/jquery.min.js')
+              script(src='js/jquery-migrate-3.0.1.min.js')
+              script(src='js/popper.min.js')
+              script(src='js/bootstrap.min.js')
+              script(src='js/jquery.easing.1.3.js')
+              script(src='js/jquery.waypoints.min.js')
+              script(src='js/jquery.stellar.min.js')
+              script(src='js/owl.carousel.min.js')
+              script(src='js/jquery.magnific-popup.min.js')
+              script(src='js/aos.js')
+              script(src='js/jquery.animateNumber.min.js')
+              script(src='js/bootstrap-datepicker.js')
+              script(src='js/scrollax.min.js')
+              script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false')
+              script(src='js/google-map.js')
+              script(src='js/main.js')
+              script.
+                $(document).ready(function(){
+                var quantitiy=0;
+                $('.quantity-right-plus').click(function(e){
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+                // If is not undefined
+                $('#quantity').val(quantity + 1);
+                // Increment
+                });
+                $('.quantity-left-minus').click(function(e){
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+                // If is not undefined
+                // Increment
+                if(quantity>0){
+                $('#quantity').val(quantity - 1);
+                }
+                });
+                });
