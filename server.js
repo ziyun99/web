@@ -55,7 +55,7 @@ app.get('/db', async (req, res) => {
     try {
       const client = await pool.connect()
       //const client = new pg.Client(connString);
-      const result = await client.query('SELECT email FROM test_table');
+      const result = await client.query('SELECT * FROM test_table');
       const results = { 'results': (result) ? result.rows : null};
       res.render('db', results );
       client.release();
