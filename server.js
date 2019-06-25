@@ -57,7 +57,7 @@ app.get('/db', async (req, res) => {
       //const client = new pg.Client(connString);
       const result = await client.query('SELECT * FROM test_table');
       const results = { 'results': (result) ? result.rows : null};
-      res.render('db', results );
+      res.render('db.ejs', results );
       client.release();
     } catch (err) {
       console.error(err);
