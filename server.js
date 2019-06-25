@@ -11,25 +11,11 @@ const PORT = process.env.PORT || 8000
 
 ////for databse
 const { Pool } = require('pg');
-var pg = require('pg');
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: true
 });
-
-var client = new pg.Client({
-	user:"jcpvlogdonwphy",
-	password: "0dff2d4942646b9b179072bfbbb13518d8437f26ea548d7842ab2eb77fda5714",
-	database: "d9jv5o3ef9e8rk",
-	port: 5432,
-	host: "ec2-23-21-186-85.compute-1.amazonaws.com",
-	ssl:true
-});
-
-client.connect();
-
-
 
 
 
@@ -67,11 +53,11 @@ app.get('/booking',(req,res) =>{
 
 app.get('/db', async (req, res) => {
     try {
-      //const client = await pool.connect()
+      const client = await pool.connect()
       //const client = new pg.Client(connString);
       const result = await client.query('SELECT email FROM test_table');
       const results = { 'results': (result) ? result.rows : null};
-      res.render('pages/db', results );
+      res.render('db', results );
       client.release();
     } catch (err) {
       console.error(err);
