@@ -5,6 +5,11 @@ const multer = require('multer');
 const poster = require('./poster.json');
 // const gallery = require('./gallery.json');
 
+
+const PORT = process.env.PORT || 8000
+
+
+
 const app = express();
 
 app.set('view engine','pug');
@@ -105,7 +110,5 @@ app.post('/feedback-res-sent',upload.single('attachment'), function (req, res) {
 //         person
 //     });
 // });
-
-const server = app.listen(8000, () => {
-    console.log(`Express running → PORT ${server.address().port}`);
-});
+  
+const server = app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
