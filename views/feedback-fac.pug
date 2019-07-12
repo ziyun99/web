@@ -26,7 +26,7 @@ html(lang='en')
               .col-md.pr-4.d-flex.topper.align-items-center
                 .icon.mr-2.d-flex.justify-content-center.align-items-center
                   span.icon-phone2
-                span.text HA: +65 9724 3063 
+                span.text HA: +65 9724 3063
               .col-md.pr-4.d-flex.topper.align-items-center
                 .icon.mr-2.d-flex.justify-content-center.align-items-center
                   span.icon-phone2
@@ -39,9 +39,11 @@ html(lang='en')
                 .icon.mr-2.d-flex.justify-content-center.align-items-center
                   span.icon-paper-plane
                 span.text kehhelp@nus.edu.sg
+              .col-md.pr-4.d-flex.topper.align-items-center
+                .icon.mr-2.d-flex.justify-content-center.align-items-center
+                  span.icon-paper-plane
+                span.text kehjcrc@nus.edu.sg                
 
-              //- .col-md-5.pr-4.d-flex.topper.align-items-center.text-lg-right
-              //-   span.text 3-5 Business days delivery & Free Returns
     nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-navbar-light
       .container
         a.navbar-brand(href='/') KIWI
@@ -51,22 +53,21 @@ html(lang='en')
         #ftco-nav.collapse.navbar-collapse
           ul.navbar-nav.ml-auto
             li.nav-item.active
-              a.nav-link(href='/') Home
+              a.nav-link.cta.cta-colored(href='/') Home
             li.nav-item.dropdown
-              a#dropdown04.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Feedback
+              a#dropdown04.nav-link.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Feedback
               .dropdown-menu(aria-labelledby='dropdown04')
                 a.dropdown-item(href='/feedback-res') Residential Life
                 a.dropdown-item(href='https://uhms.nus.edu.sg/students/Default.aspx?Params=L9ezxPcQnQsDuaBX%2bLFbaVCjyFjDa5W4') Facilities
+
             li.nav-item
-              a.nav-link(href='about.html') About
+              a.nav-link(href='/booking') Booking System
             li.nav-item
-              a.nav-link(href='blog.html') Blog
+              a.nav-link(href='/announcement') Announcement
             li.nav-item
-              a.nav-link(href='contact.html') Contact
-            li.nav-item.cta.cta-colored
-              a.nav-link(href='cart.html')
-                span.icon-shopping_cart
-                | [0]
+              a.nav-link(href='/menu') Menu
+            li.nav-item
+              a.nav-link(href='/keips') KEIPS
     // END nav
 
     .hero-wrap.hero-bread(style="background-image: url('images/bg_6.jpg');")
@@ -127,14 +128,16 @@ html(lang='en')
       .container
         .row
           .mouse
-            a.mouse-icon(href='/feedback-res')
+            a.mouse-icon(href='/')
               .mouse-wheel
                 span.ion-ios-arrow-up
         .row.mb-5
-          .col-md
-            .ftco-footer-widget.mb-4
+          .col-md-3
+            .ftco-footer-widget.mb-3
               h2.ftco-heading-2 KIWI
               p
+                | An internal web system that make a KEVIIAN's life simple. :)
+              //p
                 | People have been pronouncing my name wrongly, so I thought why not I just name myself KIWI. 
               ul.ftco-footer-social.list-unstyled.float-md-left.float-lft.mt-5
                 li.ftco-animate
@@ -146,37 +149,33 @@ html(lang='en')
                 li.ftco-animate
                   a(href='https://www.instagram.com/kingedwardviihall/')
                     span.icon-instagram
-          .col-md
-            .ftco-footer-widget.mb-4.ml-md-5
-              h2.ftco-heading-2 Menu
-              ul.list-unstyled
+                li.ftco-animate
+                  a(href='http://kevii.nus.edu.sg')
+                    span.icon-web
                 li
-                  a.py-2.d-block(href='#') Shop
-                li
-                  a.py-2.d-block(href='#') About
-                li
-                  a.py-2.d-block(href='#') Journal
-                li
-                  a.py-2.d-block(href='#') Contact Us
-          .col-md-4
-            .ftco-footer-widget.mb-4
-              h2.ftco-heading-2 Help
+
+          .col-md-5
+            .ftco-footer-widget.mb-3
+              h2.ftco-heading-2 NAVIGATION
               .d-flex
-                ul.list-unstyled.mr-l-5.pr-l-3.mr-4
+                ul.list-unstyled.mr-l-5.pr-l-3.mr-2
+                ul.list-unstyled.mr-l-5.pr-l-3.mr-5
                   li
-                    a.py-2.d-block(href='#') Shipping Information
+                    a.py-2.d-block(href='/') Home
                   li
-                    a.py-2.d-block(href='#') Returns & Exchange
+                    a.py-2.d-block(href='/feedback-res') Feedback (RL)
                   li
-                    a.py-2.d-block(href='#') Terms & Conditions
+                    a.py-2.d-block(href='/feedback-fac') Feedback (Facilities)
                   li
-                    a.py-2.d-block(href='#') Privacy Policy
-                ul.list-unstyled
+                    a.py-2.d-block(href='/booking') Booking System
+                ul.list-unstyled.mr-l-5.pr-l-3.mr-5
                   li
-                    a.py-2.d-block(href='#') FAQs
+                    a.py-2.d-block(href='/announcement') Announcement
                   li
-                    a.py-2.d-block(href='#') Contact
-          .col-md
+                    a.py-2.d-block(href='/menu') Menu              
+                  li
+                    a.py-2.d-block(href='/keips') KEIPS  
+          .col-md-4
             .ftco-footer-widget.mb-4
               h2.ftco-heading-2 Have a Questions?
               .block-23.mb-3
@@ -200,8 +199,9 @@ html(lang='en')
               // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
               | Copyright ©
               script.
-                |  All rights reserved | This template is made with 
-              i.icon-heart.color-danger(aria-hidden='true')
+                document.write(new Date().getFullYear());
+              |  All rights reserved | This template is made 
+              //i.icon-heart.color-danger(aria-hidden='true')
               |  by 
               a(href='https://colorlib.com', target='_blank') Colorlib
               // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
@@ -226,3 +226,4 @@ html(lang='en')
               script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false')
               script(src='js/google-map.js')
               script(src='js/main.js')
+
