@@ -2,30 +2,20 @@ const express = require('express');
 const nodeMailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const multer = require('multer');
-const poster = require('./poster.json');
-// const gallery = require('./gallery.json');
-
-const PORT = process.env.PORT || 8000
-
-////for database
-const { Pool } = require('pg');
-
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true
-});
+// const poster = require('./poster.json');
+const app = express();
 
 const GoogleSpreadsheet = require('google-spreadsheet');
 const async = require('async');
 const { promisify } = require('util');
 
-const app = express();
 
 app.set('view engine','pug');
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
 
 //global variables
 var upload = multer({storage: multer.memoryStorage()});
@@ -99,11 +89,15 @@ async function accessSpreadsheet(){
     rows_menu = await promisify(sheet_menu.getRows)();
     rows_keips = await promisify(sheet_keips.getRows)();
   
-
+    await server.close();
     // rowss.forEach(row => {
     //   printSheet(row);
     // })
 }
+
+
+
+//rendering and set up all webpages below:
 
 app.get('/',(req,res) =>{
     accessSpreadsheet();
@@ -114,6 +108,7 @@ app.get('/',(req,res) =>{
         
         rows_eventposter:rows_eventposter,
       });
+
 
 });
 
@@ -136,6 +131,7 @@ app.get('/announcement',(req,res) =>{
 
     });
 });
+
 
 app.get('/menu',(req,res) =>{
     accessSpreadsheet();
@@ -230,6 +226,7 @@ app.post('/keips', function (req, res) {
 });
 
 
+
 //target page
 app.post('/feedback-res-sent',upload.single('attachment'), function (req, res) {
     var msghtml='';
@@ -287,30 +284,7 @@ app.post('/feedback-res-sent',upload.single('attachment'), function (req, res) {
             });
 });
 
-app.get('/db', async (req, res) => {
-    try {
-      const client = await pool.connect()
-      //const client = new pg.Client(connString);
-      const result = await client.query('SELECT * FROM test_table');
-      const results = { 'results': (result) ? result.rows : null};
-      res.render('db.ejs', results );
-      client.release();
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-});
-
-
-// app.get('/profile',(req,res) => {
-//     const person = people.profiles.find(p => p.id === req.query.id);
-//     res.render('profile', {
-//         title: `About ${person.firstname} ${person.lastname}`,
-//         person
-//     });
-// });
-  
-const server = app.listen(PORT, () => {
+const server = app.listen(8050, () => {
     accessSpreadsheet();
     console.log(`Express running → PORT ${server.address().port}`);
 });
