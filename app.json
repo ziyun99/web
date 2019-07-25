@@ -1,0 +1,8 @@
+{
+  "name": "kiwi7",
+  "description": "King Edward VII Hall Internal Platform",
+  "repository": "https://github.com/ziyun99/web",
+  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+  "keywords": ["kiwi7", "kingedwardVII", "hall"],
+  "image": "heroku/nodejs"
+}
