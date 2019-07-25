@@ -9,6 +9,8 @@ const GoogleSpreadsheet = require('google-spreadsheet');
 const async = require('async');
 const { promisify } = require('util');
 
+const port = process.env.PORT || 8080
+
 
 app.set('view engine','pug');
 
@@ -89,7 +91,7 @@ async function accessSpreadsheet(){
     rows_menu = await promisify(sheet_menu.getRows)();
     rows_keips = await promisify(sheet_keips.getRows)();
   
-    await server.close();
+
     // rowss.forEach(row => {
     //   printSheet(row);
     // })
@@ -284,7 +286,7 @@ app.post('/feedback-res-sent',upload.single('attachment'), function (req, res) {
             });
 });
 
-const server = app.listen(8050, () => {
+const server = app.listen(port, () => {
     accessSpreadsheet();
     console.log(`Express running → PORT ${server.address().port}`);
 });

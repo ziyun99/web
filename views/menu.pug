@@ -1,7 +1,7 @@
 doctype html
 html(lang='en')
   head
-    title Winkel - Free Bootstrap 4 Template by Colorlib
+    title MENU
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800', rel='stylesheet')
@@ -79,31 +79,28 @@ html(lang='en')
                 span.text 3-5 Business days delivery & Free Returns
     nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-navbar-light
       .container
-        a.navbar-brand(href='index.html') Winkel
+        a.navbar-brand(href='index.html') KIWI
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#ftco-nav', aria-controls='ftco-nav', aria-expanded='false', aria-label='Toggle navigation')
           span.oi.oi-menu
           |  Menu
         #ftco-nav.collapse.navbar-collapse
           ul.navbar-nav.ml-auto
-            li.nav-item
-              a.nav-link(href='/') Home
-            li.nav-item.dropdown
-              a#dropdown04.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Shop
-              .dropdown-menu(aria-labelledby='dropdown04')
-                a.dropdown-item(href='shop.html') Shop
-                a.dropdown-item(href='product-single.html') Single Product
-                a.dropdown-item(href='cart.html') Cart
-                a.dropdown-item(href='checkout.html') Checkout
-            li.nav-item
-              a.nav-link(href='about.html') About
             li.nav-item.active
-              a.nav-link(href='blog.html') Blog
+              a.nav-link.cta.cta-colored(href='/') Home
+            li.nav-item.dropdown
+              a#dropdown04.nav-link.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Feedback
+              .dropdown-menu(aria-labelledby='dropdown04')
+                a.dropdown-item(href='/feedback-res') Residential Life
+                a.dropdown-item(href='https://uhms.nus.edu.sg/students/Default.aspx?Params=L9ezxPcQnQsDuaBX%2bLFbaVCjyFjDa5W4') Facilities
+
             li.nav-item
-              a.nav-link(href='contact.html') Contact
-            li.nav-item.cta.cta-colored
-              a.nav-link(href='cart.html')
-                span.icon-shopping_cart
-                | [0]
+              a.nav-link(href='/booking') Booking System
+            li.nav-item
+              a.nav-link(href='/announcement') Announcement
+            li.nav-item
+              a.nav-link(href='/menu') Menu
+            li.nav-item
+              a.nav-link(href='/keips') KEIPS
     // END nav
     .hero-wrap.hero-bread(style="background-image: url('images/bg_6.jpg');")
       .container
