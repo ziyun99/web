@@ -27,12 +27,18 @@ html(lang='en')
       $( function() {
       $( "#datepicker" ).datepicker();  
       } );
-    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
-    script(src='js/jquery.timepicker.js')
-    script.
-      $('#demo1').timepicker({
-      timeFormat: 'h:mm:ss p'
+    //script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+    //script(src='js/jquery.timepicker.js')
+    //script(type='text/javascript', src='jquery-1.11.3.min.js')
+    //script(type='text/javascript', src='wickedpicker.js')
+    //script.
+      $( function() {
+      $('.timepicker').wickedpicker(); 
       } );
+      
+      //$('#demo1').timepicker({
+      //timeFormat: 'h:mm:ss p'
+      //} );
 
     script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
     script(type='text/javascript', src='https://jonthornton.github.io/jquery-timepicker/jquery.timepicker.js')
@@ -193,7 +199,7 @@ html(lang='en')
 
 
 
-     //BOOKING FORM
+    //BOOKING FORM
     section.ftco-section.contact-section.bg-light
       .container
         a(style='color: black ;')
@@ -223,15 +229,15 @@ html(lang='en')
               .col-md-6
                 .form-group
                   label(for='date') Date
-                  input#datepicker.form-control(type='date', name='date', required='required')
+                  input#datepicker.form-control(type='text', name='date', required='required')
               .col-md-6
                 .form-group
                   label(for='starttime') Start Time
-                  input#demo1.form-control(type='time', name='starttime', required='required')
+                  //input#demo1.form-control.timepicker(type='text', name='starttime', required='required')
               .col-md-6
                 .form-group
                   label(for='endtime') End Time
-                  input.form-control(type='time', name='endtime', required='required')
+                  //input#demo2.form-control.timepicker(type='text', name='endtime', required='required')
               .form-group
                 input.btn.btn-primary.py-3.px-5(type='submit', value='Book Now!')
 
