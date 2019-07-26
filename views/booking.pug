@@ -208,7 +208,7 @@ html(lang='en')
               .col-md-12
                 .form-group
                   label(for='name') Name of CCA
-                  input.form-control(type='text', name='name', required='required')
+                  input.form-control(type='text', name='cca_name', required='required')
               .col-md-12
                 .form-group
                   label(for='purpose') Purpose
@@ -229,11 +229,11 @@ html(lang='en')
               .col-md-6
                 .form-group
                   label(for='starttime') Start Time
-                  input#demo1.form-control.timepicker(type='time', name='starttime', required='required')
+                  input#demo1.form-control.timepicker(type='datetime-local', name='starttime', required='required')
               .col-md-6
                 .form-group
                   label(for='endtime') End Time
-                  input#demo2.form-control.timepicker(type='time', name='endtime', required='required')
+                  input#demo2.form-control.timepicker(type='datetime-local', name='endtime', required='required')
               .form-group
                 input.btn.btn-primary.py-3.px-5(type='submit', value='Book Now!')
 
