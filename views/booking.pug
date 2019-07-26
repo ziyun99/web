@@ -179,6 +179,7 @@ html(lang='en')
             li.nav-item
               a.nav-link(href='/keips') KEIPS
     // END nav
+
     .hero-wrap.hero-bread(style="background-image: url('images/bg_6.jpg');")
       .container
         .row.no-gutters.slider-text.align-items-center.justify-content-center
@@ -189,44 +190,52 @@ html(lang='en')
               span Booking
             h1.mb-0.bread Booking 
             h1.mb-0.bread - Facilities Reservation -
-    
-    
+
+
+
+     //BOOKING FORM
     section.ftco-section.contact-section.bg-light
-      .container    
-        a(style ='color: black ')
-         #calendar
-      <br>
+      .container
+        a(style='color: black ;')
+          #calendar
+      br
       .container
         .row.justify-content-center
-          form.bg-white.p-5.contact-form(action='/feedback-res-sent', method='post',enctype='multipart/form-data')
+          form.bg-white.p-5.contact-form(action='/feedback-res-sent', method='post', enctype='multipart/form-data')
             .row.align-items-end
               .col-md-12
                 .form-group
                   label(for='name') Name of CCA
-                  input.form-control(type='text', name='name',required)
-              .col-md-12 
+                  input.form-control(type='text', name='name', required='required')
+              .col-md-12
                 .form-group
                   label(for='purpose') Purpose
-                  input.form-control(type='text', name = 'purpose',required)
-              .col-md-6  
+                  input.form-control(type='text', name='purpose', required='required')
+              .col-md-6
                 .form-group
                   label(for='venue') Venue
-                  input.form-control(type='text', name = 'venue',required)
-              .col-md-6  
+                  select.form-control(type='text', name='venue', required='required')
+                    option(value='Dining Hall 01') Dining Hall 01
+                    option(value='Comm Hall 02') Comm Hall 02
+                    option(value='Study Room 03') Study Room 03
+                    option(value='Marketing Room 04') Marketing Room 04
+                    option(value='Incub Room 05') Incub Room 05
+              .col-md-6
                 .form-group
                   label(for='date') Date
-                  input.form-control#datepicker(type='text', name = 'date',required)
+                  input#datepicker.form-control(type='date', name='date', required='required')
               .col-md-6
                 .form-group
                   label(for='starttime') Start Time
-                  input.form-control#demo1(type='text',name='starttime',required)
+                  input#demo1.form-control(type='time', name='starttime', required='required')
               .col-md-6
                 .form-group
                   label(for='endtime') End Time
-                  input.form-control(type ='text',name='endtime',required)
+                  input.form-control(type='time', name='endtime', required='required')
               .form-group
                 input.btn.btn-primary.py-3.px-5(type='submit', value='Book Now!')
-                
+
+
     
     //FOOTER
     footer.ftco-footer.bg-light.ftco-section
