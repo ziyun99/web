@@ -94,10 +94,8 @@ html(lang='en')
       .container
         .row.justify-content-center
           
-
-
           //action='/feedback-res-sent', , method='post', enctype='multipart/form-data'
-          form#myForm.bg-white.p-5.contact-form(name='submit-to-google-sheet', action='/feedback-res-sent', method='post', enctype='multipart/form-data')
+          form#myForm.bg-white.p-5.contact-form(name='submit-to-google-sheet', action='', method='post', enctype='multipart/form-data', autocomplete='on')
             .row.justify-content-center
               h4 Facilities Reservation Form
             .row.justify-content-center
@@ -133,13 +131,13 @@ html(lang='en')
               .col-md-4
                 .form-group
                   label(for='starttime') Start Time
-                  input#demo1.form-control(type='time', name='starttime', required='required', min='2019-06-10T00:00', max='2019-12-31T00:00')    
+                  input#starttime.form-control(type='time', name='starttime', required='required', min='2019-06-10T00:00', max='2019-12-31T00:00')    
               .col-md-4
                 .form-group
                   label(for='endtime') End Time
-                  input#demo2.form-control(type='time', name='endtime', required='required', max='2019-12-31T00:00')
+                  input#endtime.form-control(type='time', name='endtime', required='required', max='2019-12-31T00:00')
               .form-group
-                input.btn.btn-primary.py-3.px-5(type='submit', value='Book Now!')
+                input#submitbtn.btn.btn-primary.py-3.px-5(type='submit', value='Book Now!')
  
     script.
       var today = new Date();
@@ -152,10 +150,23 @@ html(lang='en')
       const scriptURL = 'https://script.google.com/macros/s/AKfycbwoDCDD5Ju9lLDGGK_0YSrV5EACOdDv9VpJg7HZTzJDSfgSUSw/exec'
       const form = document.forms['submit-to-google-sheet']
       form.addEventListener('submit', e => {
-      e.preventDefault()
+      // prevent form submission  
+      e.preventDefault();
+
+      // prevent user from entering endtime that is before the starttime
+      var start = document.getElementById("starttime").value;
+      var end = document.getElementById("endtime").value;
+      if(start >= end) {
+      alert("End Time must be after Start Time!");     
+      console.log('ohhhh!');
+      return false;  // back to the original form 
+      }
+
+      //submit the form to google sheet
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => console.log('Success!', response))
       .catch(error => console.error('Error!', error.message))
+      window.location.href = "/booking-sent";
       })
                 
     

@@ -227,7 +227,9 @@ app.post('/keips', function (req, res) {
 
 });
 
-
+app.get('/booking-sent',(req,res) =>{
+    res.render('booking-sent');
+});
 
 //target page
 app.post('/feedback-res-sent',upload.single('attachment'), function (req, res) {
@@ -285,6 +287,11 @@ app.post('/feedback-res-sent',upload.single('attachment'), function (req, res) {
                 res.render('feedback-sent');
             });
 });
+
+app.post('/bookingform-sent',upload.single('attachment'), function (req, res) {
+    res.render('booking-sent');
+});
+
 
 const server = app.listen(port, () => {
     accessSpreadsheet();
