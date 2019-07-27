@@ -2,21 +2,7 @@ doctype html
 html(lang='en')
   head
     title KIWI Booking System
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800', rel='stylesheet')
-    link(rel='stylesheet', href='css/open-iconic-bootstrap.min.css')
-    link(rel='stylesheet', href='css/animate.css')
-    link(rel='stylesheet', href='css/owl.carousel.min.css')
-    link(rel='stylesheet', href='css/owl.theme.default.min.css')
-    link(rel='stylesheet', href='css/magnific-popup.css')
-    link(rel='stylesheet', href='css/aos.css')
-    link(rel='stylesheet', href='css/ionicons.min.css')
-    link(rel='stylesheet', href='css/bootstrap-datepicker.css')
-    link(rel='stylesheet', href='css/jquery.timepicker.css')
-    link(rel='stylesheet', href='css/flaticon.css')
-    link(rel='stylesheet', href='css/icomoon.css')
-    link(rel='stylesheet', href='css/style.css')
+    include includes/css_link.pug
  
     //datepicker and timepicker
     //link(rel='stylesheet', href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
@@ -27,14 +13,12 @@ html(lang='en')
       $( function() {
       $( "#datepicker" ).datepicker();  
       } );
-    //script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
-    //script(src='js/jquery.timepicker.js')
-    script(type='text/javascript', src='jquery-1.11.3.min.js')
-    script(type='text/javascript', src='wickedpicker.js')
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+    script(src='js/jquery.timepicker.js')
     script.
-      $(document).ready(function(){
-      $('.timepicker').wickedpicker();
-      });
+      $('#demo1').timepicker({
+      timeFormat: 'h:mm:ss p'
+      } );
 
     script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
     script(type='text/javascript', src='https://jonthornton.github.io/jquery-timepicker/jquery.timepicker.js')
@@ -42,146 +26,64 @@ html(lang='en')
     script(type='text/javascript', src='https://jonthornton.github.io/jquery-timepicker/lib/bootstrap-datepicker.js')
     link(rel='stylesheet', type='text/css', href='https://jonthornton.github.io/jquery-timepicker/lib/bootstrap-datepicker.css')
 
-
-
     //calendar
+    //using fullcalendar to display bookings/event from google calendar 
     link(href='fullcalendar/core/main.css', rel='stylesheet')
     link(href='fullcalendar/daygrid/main.css', rel='stylesheet')
     script(src='fullcalendar/core/main.js')
     script(src='fullcalendar/daygrid/main.js')
+    script(src='fullcalendar/google-calendar/main.js')
+    script(src='fullcalendar/lib/jquery.min.js')
+    script(src='fullcalendar/lib/moment.min.js')
     script.
       document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
-      plugins: [ 'dayGrid' ],
+      plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
       header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,dayGridMonth,listYear'
       },
-      defaultDate: '2019-06-12',
-      navLinks: true, // can click day/week names to navigate views
-      editable: true,
-      eventOverlap: false,
-      eventLimit: true, // allow "more" link when too many events
-      events: [
+      //displayEventTime: false, // don't show the time column in list view
+      googleCalendarApiKey: 'AIzaSyC_mWruJZ1BBBYtqFOd4isekFRKOOAKChM',
+      eventSources: [
         {
-          title: 'All Day Event',
-          start: '2019-06-01',
-        },
-        {
-          title: 'Long Event',
-          start: '2019-06-07',
-          end: '2019-06-10',
+          googleCalendarId: '1b6t3ab0q9f4fdf5jf7lou0n2k@group.calendar.google.com',
           color: 'pink'
         },
         {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2019-06-09T16:00:00'
+          googleCalendarId: 'm177m8gpcul33cittkr9orgn2c@group.calendar.google.com',
+          color: 'blue'
         },
         {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2019-06-16T16:00:00'
+          googleCalendarId: 'h64gs6eub1o4sfkudpopmeuvqk@group.calendar.google.com',
+          color: 'purple'
         },
         {
-          title: 'Conference',
-          start: '2019-06-11',
-          end: '2019-06-13'
+          googleCalendarId: 'r5ova3ln860o8v08c6pb826jvs@group.calendar.google.com',
+          color: 'green'
         },
         {
-          title: 'Meeting',
-          start: '2019-06-12T10:30:00',
-          end: '2019-06-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2019-06-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2019-06-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2019-06-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2019-06-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2019-06-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2019-06-28'
+          googleCalendarId: '43h56k493csaghvtu61ukhja28@group.calendar.google.com',
+          color: 'orange'
         }
-      ]
+      ],
+      //events: 'en.usa#holiday@group.v.calendar.google.com',
+      eventClick: function(arg) {
+      // opens events in a popup window
+      window.open(arg.event.url, '_blank', 'width=700,height=600');
+      // prevents current tab from navigating
+      arg.jsEvent.preventDefault();
+      }
       });
-
-
       calendar.render();
       });
 
 
-  
   body.goto-here
-    .py-1.bg-black
-      .container
-        .row.no-gutters.d-flex.align-items-start.align-items-center.px-md-0
-          .col-lg-12.d-block
-            .row.d-flex
-              .col-md.pr-4.d-flex.topper.align-items-center
-                .icon.mr-2.d-flex.justify-content-center.align-items-center
-                  span.icon-phone2
-                span.text HA: +65 9724 3063
-              .col-md.pr-4.d-flex.topper.align-items-center
-                .icon.mr-2.d-flex.justify-content-center.align-items-center
-                  span.icon-phone2
-                span.text OFM: +65 6516 1515
-              .col-md.pr-4.d-flex.topper.align-items-center
-                .icon.mr-2.d-flex.justify-content-center.align-items-center
-                  span.icon-phone2
-                span.text OCS: +65 6874 1616
-              .col-md.pr-4.d-flex.topper.align-items-center
-                .icon.mr-2.d-flex.justify-content-center.align-items-center
-                  span.icon-paper-plane
-                span.text kehhelp@nus.edu.sg
-              .col-md.pr-4.d-flex.topper.align-items-center
-                .icon.mr-2.d-flex.justify-content-center.align-items-center
-                  span.icon-paper-plane
-                span.text kehjcrc@nus.edu.sg                
-
-    nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-navbar-light
-      .container
-        a.navbar-brand(href='/') KIWI
-        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#ftco-nav', aria-controls='ftco-nav', aria-expanded='false', aria-label='Toggle navigation')
-          span.oi.oi-menu
-          |  Menu
-        #ftco-nav.collapse.navbar-collapse
-          ul.navbar-nav.ml-auto
-            li.nav-item.active
-              a.nav-link.cta.cta-colored(href='/') Home
-            li.nav-item.dropdown
-              a#dropdown04.nav-link.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Feedback
-              .dropdown-menu(aria-labelledby='dropdown04')
-                a.dropdown-item(href='/feedback-res') Residential Life
-                a.dropdown-item(href='https://uhms.nus.edu.sg/students/Default.aspx?Params=L9ezxPcQnQsDuaBX%2bLFbaVCjyFjDa5W4') Facilities
-
-            li.nav-item
-              a.nav-link(href='/booking') Booking System
-            li.nav-item
-              a.nav-link(href='/announcement') Announcement
-            li.nav-item
-              a.nav-link(href='/menu') Menu
-            li.nav-item
-              a.nav-link(href='/keips') KEIPS
-    // END nav
-
+    include includes/nav.pug
+    // TITLE 
     .hero-wrap.hero-bread(style="background-image: url('images/bg_6.jpg');")
       .container
         .row.no-gutters.slider-text.align-items-center.justify-content-center
@@ -192,18 +94,18 @@ html(lang='en')
               span Booking
             h1.mb-0.bread Booking 
             h1.mb-0.bread - Facilities Reservation -
-
-
-
-    //BOOKING FORM
+    // CONTENT
     section.ftco-section.contact-section.bg-light
-      .container
-        a(style='color: black ;')
-          #calendar
-      br
+      // CALENDAR
+      .container    
+        a(style ='color: black ')
+         #calendar
+      <br>
+      // BOOKING FORM
       .container
         .row.justify-content-center
-          form.bg-white.p-5.contact-form(action='/feedback-res-sent', method='post', enctype='multipart/form-data')
+          //action='/feedback-res-sent', , method='post', enctype='multipart/form-data'
+          form#myForm.bg-white.p-5.contact-form(name='submit-to-google-sheet', action='/feedback-res-sent', method='post', enctype='multipart/form-data')
             .row.align-items-end
               .col-md-12
                 .form-group
@@ -224,122 +126,34 @@ html(lang='en')
                     option(value='Incub Room 05') Incub Room 05
               .col-md-6
                 .form-group
-                  label(for='date') Date
-                  input#datepicker.form-control(type='text', name='date', required='required')
+                  label(for='email') Email
+                  input.form-control(type='email', name='email', required='required')
+                  //input#datepicker.form-control(type='text', name='date', required='required')
               .col-md-6
                 .form-group
                   label(for='starttime') Start Time
-                  input#demo1.form-control.timepicker(type='datetime-local', name='starttime', required='required')
+                  input#demo1.form-control(type='datetime-local', name='starttime', required='required')
               .col-md-6
                 .form-group
                   label(for='endtime') End Time
-                  input#demo2.form-control.timepicker(type='datetime-local', name='endtime', required='required')
+                  input#demo2.form-control(type='datetime-local', name='endtime', required='required')
               .form-group
                 input.btn.btn-primary.py-3.px-5(type='submit', value='Book Now!')
+ 
 
-
+    //to submit html form content to google sheet (url below linked to Google Script webApp)
+    script.
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwoDCDD5Ju9lLDGGK_0YSrV5EACOdDv9VpJg7HZTzJDSfgSUSw/exec'
+      const form = document.forms['submit-to-google-sheet']
+      var demo1 = document.getElementById("demo1").value;
+      var demo2 = document.getElementById("demo2").value;
+      form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+      })
+                
     
-    //FOOTER
-    footer.ftco-footer.bg-light.ftco-section
-      .container
-        .row
-          .mouse
-            a.mouse-icon(href='/')
-              .mouse-wheel
-                span.ion-ios-arrow-up
-        .row.mb-5
-          .col-md-3
-            .ftco-footer-widget.mb-3
-              h2.ftco-heading-2 KIWI
-              p
-                | An internal web system that make a KEVIIAN's life simple. :)
-              //p
-                | People have been pronouncing my name wrongly, so I thought why not I just name myself KIWI. 
-              ul.ftco-footer-social.list-unstyled.float-md-left.float-lft.mt-5
-                li.ftco-animate
-                  a(href='https://www.youtube.com/user/KEMediaX/videos')
-                    span.icon-youtube
-                li.ftco-animate
-                  a(href='https://www.facebook.com/keviihall')
-                    span.icon-facebook
-                li.ftco-animate
-                  a(href='https://www.instagram.com/kingedwardviihall/')
-                    span.icon-instagram
-                li.ftco-animate
-                  a(href='http://kevii.nus.edu.sg')
-                    span.icon-web
-                li
-
-          .col-md-5
-            .ftco-footer-widget.mb-3
-              h2.ftco-heading-2 NAVIGATION
-              .d-flex
-                ul.list-unstyled.mr-l-5.pr-l-3.mr-2
-                ul.list-unstyled.mr-l-5.pr-l-3.mr-5
-                  li
-                    a.py-2.d-block(href='/') Home
-                  li
-                    a.py-2.d-block(href='/feedback-res') Feedback (RL)
-                  li
-                    a.py-2.d-block(href='/feedback-fac') Feedback (Facilities)
-                  li
-                    a.py-2.d-block(href='/booking') Booking System
-                ul.list-unstyled.mr-l-5.pr-l-3.mr-5
-                  li
-                    a.py-2.d-block(href='/announcement') Announcement
-                  li
-                    a.py-2.d-block(href='/menu') Menu              
-                  li
-                    a.py-2.d-block(href='/keips') KEIPS  
-          .col-md-4
-            .ftco-footer-widget.mb-4
-              h2.ftco-heading-2 Have a Questions?
-              .block-23.mb-3
-                ul
-                  li
-                    span.icon.icon-map-marker
-                    span.text 1A Kent Ridge Rd, Singapore 119224
-                  li 
-                    span.text  <br>
-                  li
-                      span.icon.icon-phone
-                      span.text (+65) 6516 5774
-                  li 
-                    span.text  <br>
-                  li
-                      span.icon.icon-envelope
-                      span.text kehhelp@nus.edu.sg
-        .row
-          .col-md-12.text-center
-            p
-              // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-              | Copyright ©
-              script.
-                document.write(new Date().getFullYear());
-              |  All rights reserved | This template is made 
-              //i.icon-heart.color-danger(aria-hidden='true')
-              |  by 
-              a(href='https://colorlib.com', target='_blank') Colorlib
-              // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-              // loader
-              #ftco-loader.show.fullscreen
-                svg.circular(width='48px', height='48px')
-                  circle.path-bg(cx='24', cy='24', r='22', fill='none', stroke-width='4', stroke='#eeeeee')
-                  circle.path(cx='24', cy='24', r='22', fill='none', stroke-width='4', stroke-miterlimit='10', stroke='#F96D00')
-              script(src='js/jquery.min.js')
-              script(src='js/jquery-migrate-3.0.1.min.js')
-              script(src='js/popper.min.js')
-              script(src='js/bootstrap.min.js')
-              script(src='js/jquery.easing.1.3.js')
-              script(src='js/jquery.waypoints.min.js')
-              script(src='js/jquery.stellar.min.js')
-              script(src='js/owl.carousel.min.js')
-              script(src='js/jquery.magnific-popup.min.js')
-              script(src='js/aos.js')
-              script(src='js/jquery.animateNumber.min.js')
-              script(src='js/bootstrap-datepicker.js')
-              script(src='js/scrollax.min.js')
-              script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false')
-              script(src='js/google-map.js')
-              script(src='js/main.js')
-
+    // FOOTER
+    include includes/footer.pug

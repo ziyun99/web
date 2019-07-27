@@ -2,74 +2,11 @@ doctype html
 html(lang='en')
   head
     title KIWI Feedback Residential Life
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800', rel='stylesheet')
-    link(rel='stylesheet', href='css/open-iconic-bootstrap.min.css')
-    link(rel='stylesheet', href='css/animate.css')
-    link(rel='stylesheet', href='css/owl.carousel.min.css')
-    link(rel='stylesheet', href='css/owl.theme.default.min.css')
-    link(rel='stylesheet', href='css/magnific-popup.css')
-    link(rel='stylesheet', href='css/aos.css')
-    link(rel='stylesheet', href='css/ionicons.min.css')
-    link(rel='stylesheet', href='css/bootstrap-datepicker.css')
-    link(rel='stylesheet', href='css/jquery.timepicker.css')
-    link(rel='stylesheet', href='css/flaticon.css')
-    link(rel='stylesheet', href='css/icomoon.css')
-    link(rel='stylesheet', href='css/style.css')
+    include includes/css_link.pug
+
   body.goto-here
-    .py-1.bg-black
-      .container
-        .row.no-gutters.d-flex.align-items-start.align-items-center.px-md-0
-          .col-lg-12.d-block
-            .row.d-flex
-              .col-md.pr-4.d-flex.topper.align-items-center
-                .icon.mr-2.d-flex.justify-content-center.align-items-center
-                  span.icon-phone2
-                span.text HA: +65 9724 3063
-              .col-md.pr-4.d-flex.topper.align-items-center
-                .icon.mr-2.d-flex.justify-content-center.align-items-center
-                  span.icon-phone2
-                span.text OFM: +65 6516 1515
-              .col-md.pr-4.d-flex.topper.align-items-center
-                .icon.mr-2.d-flex.justify-content-center.align-items-center
-                  span.icon-phone2
-                span.text OCS: +65 6874 1616
-              .col-md.pr-4.d-flex.topper.align-items-center
-                .icon.mr-2.d-flex.justify-content-center.align-items-center
-                  span.icon-paper-plane
-                span.text kehhelp@nus.edu.sg
-              .col-md.pr-4.d-flex.topper.align-items-center
-                .icon.mr-2.d-flex.justify-content-center.align-items-center
-                  span.icon-paper-plane
-                span.text kehjcrc@nus.edu.sg                
-
-    nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-navbar-light
-      .container
-        a.navbar-brand(href='/') KIWI
-        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#ftco-nav', aria-controls='ftco-nav', aria-expanded='false', aria-label='Toggle navigation')
-          span.oi.oi-menu
-          |  Menu
-        #ftco-nav.collapse.navbar-collapse
-          ul.navbar-nav.ml-auto
-            li.nav-item.active
-              a.nav-link.cta.cta-colored(href='/') Home
-            li.nav-item.dropdown
-              a#dropdown04.nav-link.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Feedback
-              .dropdown-menu(aria-labelledby='dropdown04')
-                a.dropdown-item(href='/feedback-res') Residential Life
-                a.dropdown-item(href='https://uhms.nus.edu.sg/students/Default.aspx?Params=L9ezxPcQnQsDuaBX%2bLFbaVCjyFjDa5W4') Facilities
-
-            li.nav-item
-              a.nav-link(href='/booking') Booking System
-            li.nav-item
-              a.nav-link(href='/announcement') Announcement
-            li.nav-item
-              a.nav-link(href='/menu') Menu
-            li.nav-item
-              a.nav-link(href='/keips') KEIPS
-    // END nav
-
+    include includes/nav.pug
+    // TITLE 
     .hero-wrap.hero-bread(style="background-image: url('images/bg_6.jpg');")
       .container
         .row.no-gutters.slider-text.align-items-center.justify-content-center
@@ -80,11 +17,11 @@ html(lang='en')
               span Feedback
             h1.mb-0.bread Feedback 
             h1.mb-0.bread - Residential Life -
+    // CONTENT            
     section.ftco-section.contact-section.bg-light
       .container
-        
         .row.block-9
-          form.bg-white.p-5.contact-form(action='/feedback-sent', method='post', style='margin-top: -150px;',enctype='multipart/form-data')
+          form.bg-white.p-5.contact-form(action='/feedback-res-sent', method='POST', style='margin-top: -150px;',enctype='multipart/form-data')
             //- .form-group
             //-   label(for='category') Category
             //-   input.form-control(type = 'text', name = 'category', value ='Residential Life',readonly)
@@ -105,107 +42,6 @@ html(lang='en')
                 input.form-control(type='file',name='attachment', accept='image/*')
             .form-group
               input.btn.btn-primary.py-3.px-5(type='submit', value='Send Message')
-  
-    //FOOTER
-    footer.ftco-footer.bg-light.ftco-section
-      .container
-        .row
-          .mouse
-            a.mouse-icon(href='/')
-              .mouse-wheel
-                span.ion-ios-arrow-up
-        .row.mb-5
-          .col-md-3
-            .ftco-footer-widget.mb-3
-              h2.ftco-heading-2 KIWI
-              p
-                | An internal web system that make a KEVIIAN's life simple. :)
-              //p
-                | People have been pronouncing my name wrongly, so I thought why not I just name myself KIWI. 
-              ul.ftco-footer-social.list-unstyled.float-md-left.float-lft.mt-5
-                li.ftco-animate
-                  a(href='https://www.youtube.com/user/KEMediaX/videos')
-                    span.icon-youtube
-                li.ftco-animate
-                  a(href='https://www.facebook.com/keviihall')
-                    span.icon-facebook
-                li.ftco-animate
-                  a(href='https://www.instagram.com/kingedwardviihall/')
-                    span.icon-instagram
-                li.ftco-animate
-                  a(href='http://kevii.nus.edu.sg')
-                    span.icon-web
-                li
 
-          .col-md-5
-            .ftco-footer-widget.mb-3
-              h2.ftco-heading-2 NAVIGATION
-              .d-flex
-                ul.list-unstyled.mr-l-5.pr-l-3.mr-2
-                ul.list-unstyled.mr-l-5.pr-l-3.mr-5
-                  li
-                    a.py-2.d-block(href='/') Home
-                  li
-                    a.py-2.d-block(href='/feedback-res') Feedback (RL)
-                  li
-                    a.py-2.d-block(href='/feedback-fac') Feedback (Facilities)
-                  li
-                    a.py-2.d-block(href='/booking') Booking System
-                ul.list-unstyled.mr-l-5.pr-l-3.mr-5
-                  li
-                    a.py-2.d-block(href='/announcement') Announcement
-                  li
-                    a.py-2.d-block(href='/menu') Menu              
-                  li
-                    a.py-2.d-block(href='/keips') KEIPS  
-          .col-md-4
-            .ftco-footer-widget.mb-4
-              h2.ftco-heading-2 Have a Questions?
-              .block-23.mb-3
-                ul
-                  li
-                    span.icon.icon-map-marker
-                    span.text 1A Kent Ridge Rd, Singapore 119224
-                  li 
-                    span.text  <br>
-                  li
-                      span.icon.icon-phone
-                      span.text (+65) 6516 5774
-                  li 
-                    span.text  <br>
-                  li
-                      span.icon.icon-envelope
-                      span.text kehhelp@nus.edu.sg
-        .row
-          .col-md-12.text-center
-            p
-              // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-              | Copyright ©
-              script.
-                document.write(new Date().getFullYear());
-              |  All rights reserved | This template is made 
-              //i.icon-heart.color-danger(aria-hidden='true')
-              |  by 
-              a(href='https://colorlib.com', target='_blank') Colorlib
-              // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-              // loader
-              #ftco-loader.show.fullscreen
-                svg.circular(width='48px', height='48px')
-                  circle.path-bg(cx='24', cy='24', r='22', fill='none', stroke-width='4', stroke='#eeeeee')
-                  circle.path(cx='24', cy='24', r='22', fill='none', stroke-width='4', stroke-miterlimit='10', stroke='#F96D00')
-              script(src='js/jquery.min.js')
-              script(src='js/jquery-migrate-3.0.1.min.js')
-              script(src='js/popper.min.js')
-              script(src='js/bootstrap.min.js')
-              script(src='js/jquery.easing.1.3.js')
-              script(src='js/jquery.waypoints.min.js')
-              script(src='js/jquery.stellar.min.js')
-              script(src='js/owl.carousel.min.js')
-              script(src='js/jquery.magnific-popup.min.js')
-              script(src='js/aos.js')
-              script(src='js/jquery.animateNumber.min.js')
-              script(src='js/bootstrap-datepicker.js')
-              script(src='js/scrollax.min.js')
-              script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false')
-              script(src='js/google-map.js')
-              script(src='js/main.js')
+    // FOOTER
+    include includes/footer.pug  
