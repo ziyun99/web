@@ -4,6 +4,37 @@ html(lang='en')
     title KIWI Booking System
     include includes/css_link.pug
  
+    //datepicker and timepicker
+    //link(rel='stylesheet', href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
+    //link(rel='stylesheet', href='/resources/demos/style.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script(src='https://code.jquery.com/jquery-1.12.4.js')
+    //script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
+    script.
+      $( function() {
+      $( "#datepicker" ).datepicker();  
+      } );
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+    script(src='js/jquery.timepicker.js')
+    script.
+      $('#demo1').timepicker({
+      timeFormat: 'h:mm:ss p'
+      } );
+
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    script(type='text/javascript', src='https://jonthornton.github.io/jquery-timepicker/jquery.timepicker.js')
+    link(rel='stylesheet', type='text/css', href='https://jonthornton.github.io/jquery-timepicker/jquery.timepicker.css')
+    script(type='text/javascript', src='https://jonthornton.github.io/jquery-timepicker/lib/bootstrap-datepicker.js')
+    link(rel='stylesheet', type='text/css', href='https://jonthornton.github.io/jquery-timepicker/lib/bootstrap-datepicker.css')
+
+    script(type='text/javascript', src='bower_components/jquery/jquery.min.js')
+    script(type='text/javascript', src='bower_components/moment/min/moment.min.js')
+    script(type='text/javascript', src='bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(type='text/javascript', src='bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')
+    script(type='text/javascript', src='bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js')
+    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css')   
+
     //calendar
     //using fullcalendar to display bookings/event from google calendar 
     link(href='fullcalendar/core/main.css', rel='stylesheet')
@@ -82,6 +113,18 @@ html(lang='en')
             h1.mb-0.bread Booking 
             h1.mb-0.bread - Facilities Reservation -
     // CONTENT
+    .container
+      .row
+        .col-sm-6
+          .form-group
+            #datetimepicker1.input-group.date
+              input.form-control(type='text')
+              span.input-group-addon
+                span.glyphicon.glyphicon-calendar
+        script(type='text/javascript').
+          $(function () {
+          $('#datetimepicker1').datetimepicker();
+          });
 
     section.ftco-section.contact-section.bg-light
       // CALENDAR
@@ -89,20 +132,37 @@ html(lang='en')
         a(style ='color: black ')
          #calendar
       <br>
-
+      .container
+        .col-md-5
+          .form-group
+            #datetimepicker6.input-group.date
+              input.form-control(type='text')
+              span.input-group-addon
+                span.glyphicon.glyphicon-calendar
+        .col-md-5
+          .form-group
+            #datetimepicker7.input-group.date
+              input.form-control(type='text')
+              span.input-group-addon
+                span.glyphicon.glyphicon-calendar
+      script(type='text/javascript').
+        $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+        useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+        $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+        $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+        });
       // BOOKING FORM
       .container
         .row.justify-content-center
-          
-
-
           //action='/feedback-res-sent', , method='post', enctype='multipart/form-data'
           form#myForm.bg-white.p-5.contact-form(name='submit-to-google-sheet', action='/feedback-res-sent', method='post', enctype='multipart/form-data')
-            .row.justify-content-center
-              h4 Facilities Reservation Form
-            .row.justify-content-center
-              p(style='color:Tomato;') Please ensure your booking is made 3 days in advance.  
-
             .row.align-items-end
               .col-md-12
                 .form-group
@@ -126,31 +186,24 @@ html(lang='en')
                   label(for='email') Email
                   input.form-control(type='email', name='email', required='required')
                   //input#datepicker.form-control(type='text', name='date', required='required')
-              .col-md-4
-                .form-group
-                  label(for='date') Date
-                  input#date.form-control(type='date', name='date', required='required', max='2019-12-31')
-              .col-md-4
+              .col-md-6
                 .form-group
                   label(for='starttime') Start Time
-                  input#demo1.form-control(type='time', name='starttime', required='required', min='2019-06-10T00:00', max='2019-12-31T00:00')    
-              .col-md-4
+                  input#demo1.form-control(type='datetime-local', name='starttime', required='required')
+              .col-md-6
                 .form-group
                   label(for='endtime') End Time
-                  input#demo2.form-control(type='time', name='endtime', required='required', max='2019-12-31T00:00')
+                  input#demo2.form-control(type='datetime-local', name='endtime', required='required')
               .form-group
                 input.btn.btn-primary.py-3.px-5(type='submit', value='Book Now!')
  
-    script.
-      var today = new Date();
-      var min_date = new Date(today.getTime()+1000*60*60*24*3).toISOString().split('T')[0]; // 3 days after today
-      console.log(min_date); 
-      document.getElementById("date").setAttribute("min", min_date);   
 
     //to submit html form content to google sheet (url below linked to Google Script webApp)
     script.
       const scriptURL = 'https://script.google.com/macros/s/AKfycbwoDCDD5Ju9lLDGGK_0YSrV5EACOdDv9VpJg7HZTzJDSfgSUSw/exec'
       const form = document.forms['submit-to-google-sheet']
+      var demo1 = document.getElementById("demo1").value;
+      var demo2 = document.getElementById("demo2").value;
       form.addEventListener('submit', e => {
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
