@@ -3,6 +3,78 @@ html(lang='en')
   head
     title KIWI Booking System
     include includes/css_link.pug
+
+    // css style for booking form
+    style.
+      #formtitle {
+      text-align: center;
+      font-family: allura;
+      font-size: 60px;
+      line-height: 1;
+      padding: 0;
+      margin: 0;
+      color: white;
+      text-shadow: 1px 1px 2px #292929, -1px -1px 0.5px #292929;
+      }
+      #form_container {
+      box-shadow: 2px 2px 8px #292929;
+      border: none;
+      }      
+
+    // css style for tab menu
+    style.
+      body {font-family: Arial;}
+      #tab_container {
+      padding: 1% 6%;
+      align: left;
+      }
+      /* Style the tab */
+      .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+      }
+      /* Style the buttons inside the tab */
+      .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+      }
+      .tab button:hover {
+      background-color: #ddd;
+      color: black;
+      }
+      /* Create an active/current tablink class */
+      .tab button.active {
+      background-color: #ccc;
+      }
+      /* Style the tab content */
+      .tabcontent {
+      display: none;
+      padding: 0% 6%;
+      border: none;
+      }
+      #btn01 {
+      color: purple;
+      border-color: purple;
+      }
+      #btn02 {
+      color: blue;
+      }
+      #btn03 {
+      color: pink;
+      }
+      #btn04 {
+      color: green;
+      }
+      #btn05 {
+      color: orange;
+      }
  
     //calendar
     //using fullcalendar to display bookings/event from google calendar 
@@ -24,7 +96,52 @@ html(lang='en')
     //script(src='fullcalendar/lib/moment.min.js') // file not found
     script.
       document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
+      var calendarE0 = document.getElementById('calendar_all');
+      var calendar = new FullCalendar.Calendar(calendarE0, {
+      plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
+      header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,dayGridMonth,listYear'
+      },
+      //displayEventTime: false, // don't show the time column in list view
+      googleCalendarApiKey: 'AIzaSyC_mWruJZ1BBBYtqFOd4isekFRKOOAKChM',
+      eventSources: [
+        {
+          googleCalendarId: '1b6t3ab0q9f4fdf5jf7lou0n2k@group.calendar.google.com',
+          color: 'purple'
+        },
+        {
+          googleCalendarId: 'm177m8gpcul33cittkr9orgn2c@group.calendar.google.com',
+          color: 'blue'
+        },
+        {
+          googleCalendarId: 'h64gs6eub1o4sfkudpopmeuvqk@group.calendar.google.com',
+          color: 'pink'
+        },
+        {
+          googleCalendarId: 'r5ova3ln860o8v08c6pb826jvs@group.calendar.google.com',
+          color: 'green'
+        },
+        {
+          googleCalendarId: '43h56k493csaghvtu61ukhja28@group.calendar.google.com',
+          color: 'orange'
+        }
+      ],
+      //events: 'en.usa#holiday@group.v.calendar.google.com',
+      eventClick: function(arg) {
+      // opens events in a popup window
+      window.open(arg.event.url, '_blank', 'width=700,height=600');
+      // prevents current tab from navigating
+      arg.jsEvent.preventDefault();
+      }
+      });
+      calendar.render();
+      });
+
+      // cal01
+      document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar_01');
       var calendar = new FullCalendar.Calendar(calendarEl, {
       plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
       header: {
@@ -37,20 +154,120 @@ html(lang='en')
       eventSources: [
         {
           googleCalendarId: '1b6t3ab0q9f4fdf5jf7lou0n2k@group.calendar.google.com',
-          color: 'pink'
-        },
+          color: '#B7950B'
+        }
+      ],
+      //events: 'en.usa#holiday@group.v.calendar.google.com',
+      eventClick: function(arg) {
+      // opens events in a popup window
+      window.open(arg.event.url, '_blank', 'width=700,height=600');
+      // prevents current tab from navigating
+      arg.jsEvent.preventDefault();
+      }
+      });
+      calendar.render();
+      });
+
+      //cal02
+      document.addEventListener('DOMContentLoaded', function() {
+      var calendarE2 = document.getElementById('calendar_02');
+      var calendar = new FullCalendar.Calendar(calendarE2, {
+      plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
+      header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,dayGridMonth,listYear'
+      },
+      //displayEventTime: false, // don't show the time column in list view
+      googleCalendarApiKey: 'AIzaSyC_mWruJZ1BBBYtqFOd4isekFRKOOAKChM',
+      eventSources: [
         {
           googleCalendarId: 'm177m8gpcul33cittkr9orgn2c@group.calendar.google.com',
-          color: 'blue'
-        },
+          color: 'purple'
+        }
+      ],
+      //events: 'en.usa#holiday@group.v.calendar.google.com',
+      eventClick: function(arg) {
+      // opens events in a popup window
+      window.open(arg.event.url, '_blank', 'width=700,height=600');
+      // prevents current tab from navigating
+      arg.jsEvent.preventDefault();
+      }
+      });
+      calendar.render();
+      });      
+
+      //cal03
+      document.addEventListener('DOMContentLoaded', function() {
+      var calendarE3 = document.getElementById('calendar_03');
+      var calendar = new FullCalendar.Calendar(calendarE3, {
+      plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
+      header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,dayGridMonth,listYear'
+      },
+      //displayEventTime: false, // don't show the time column in list view
+      googleCalendarApiKey: 'AIzaSyC_mWruJZ1BBBYtqFOd4isekFRKOOAKChM',
+      eventSources: [
         {
           googleCalendarId: 'h64gs6eub1o4sfkudpopmeuvqk@group.calendar.google.com',
-          color: 'purple'
-        },
+          color: 'teal'
+        }
+      ],
+      //events: 'en.usa#holiday@group.v.calendar.google.com',
+      eventClick: function(arg) {
+      // opens events in a popup window
+      window.open(arg.event.url, '_blank', 'width=700,height=600');
+      // prevents current tab from navigating
+      arg.jsEvent.preventDefault();
+      }
+      });
+      calendar.render();
+      });
+
+      //cal04
+      document.addEventListener('DOMContentLoaded', function() {
+      var calendarE4 = document.getElementById('calendar_04');
+      var calendar = new FullCalendar.Calendar(calendarE4, {
+      plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
+      header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,dayGridMonth,listYear'
+      },
+      //displayEventTime: false, // don't show the time column in list view
+      googleCalendarApiKey: 'AIzaSyC_mWruJZ1BBBYtqFOd4isekFRKOOAKChM',
+      eventSources: [
         {
           googleCalendarId: 'r5ova3ln860o8v08c6pb826jvs@group.calendar.google.com',
-          color: 'green'
-        },
+          color: '#283747'
+        }
+      ],
+      //events: 'en.usa#holiday@group.v.calendar.google.com',
+      eventClick: function(arg) {
+      // opens events in a popup window
+      window.open(arg.event.url, '_blank', 'width=700,height=600');
+      // prevents current tab from navigating
+      arg.jsEvent.preventDefault();
+      }
+      });
+      calendar.render();
+      });
+
+      //cal05
+      document.addEventListener('DOMContentLoaded', function() {
+      var calendarE5 = document.getElementById('calendar_05');
+      var calendar = new FullCalendar.Calendar(calendarE5, {
+      plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
+      header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,dayGridMonth,listYear'
+      },
+      //displayEventTime: false, // don't show the time column in list view
+      googleCalendarApiKey: 'AIzaSyC_mWruJZ1BBBYtqFOd4isekFRKOOAKChM',
+      eventSources: [
         {
           googleCalendarId: '43h56k493csaghvtu61ukhja28@group.calendar.google.com',
           color: 'orange'
@@ -85,19 +302,39 @@ html(lang='en')
 
     section.ftco-section.contact-section.bg-light
       // CALENDAR
-      .container    
-        a(style ='color: black ')
-         #calendar
-      <br>
+      .row.justify-content-center
+        .container#tab_container
+          .tab
+            button#defaultOpen.tablinks(onclick="openCalendar(event, 'all')") All
+            button#btn01.tablinks(onclick="openCalendar(event, 'cal01')") Dining Hall 01
+            button#btn02.tablinks(onclick="openCalendar(event, 'cal02')") Comm Hall 02
+            button#btn03.tablinks(onclick="openCalendar(event, 'cal03')") Study Room 03
+            button#btn04.tablinks(onclick="openCalendar(event, 'cal04')") Marketing Room 04
+            button#btn05.tablinks(onclick="openCalendar(event, 'cal05')") Incub Room 05
+        br  
+        #all.tabcontent
+          #calendar_all
+        #cal01.tabcontent
+          #calendar_01
+        #cal02.tabcontent
+          #calendar_02
+        #cal03.tabcontent
+          #calendar_03
+        #cal04.tabcontent
+          #calendar_04
+        #cal05.tabcontent
+          #calendar_05
+        br  
+        br
 
       // BOOKING FORM
-      .container
+      .container#form_container
         .row.justify-content-center
           
           //action='/feedback-res-sent', , method='post', enctype='multipart/form-data'
           form#myForm.bg-white.p-5.contact-form(name='submit-to-google-sheet', action='', method='post', enctype='multipart/form-data', autocomplete='on')
             .row.justify-content-center
-              h4 Facilities Reservation Form
+              p#formtitle Facilities Reservation Form
             .row.justify-content-center
               p(style='color:Tomato;') Please ensure your booking is made 3 days in advance.  
 
@@ -168,6 +405,23 @@ html(lang='en')
       .catch(error => console.error('Error!', error.message))
       window.location.href = "/booking-sent";
       })
+
+    script.
+      function openCalendar(evt, calName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(calName).style.display = "block";
+      evt.currentTarget.className += " active";
+      }
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();      
                 
     
     // FOOTER
