@@ -62,7 +62,6 @@ html(lang='en')
       }
       #btn01 {
       color: purple;
-      border-color: purple;
       }
       #btn02 {
       color: blue;
@@ -78,213 +77,7 @@ html(lang='en')
       }
  
     //calendar
-    //using fullcalendar to display bookings/event from google calendar 
-    link(href='fullcalendar/core/main.css', rel='stylesheet')
-    link(href='fullcalendar/daygrid/main.css', rel='stylesheet')
-    script(src='fullcalendar/core/main.js')
-    script(src='fullcalendar/daygrid/main.js')
-
-    script(src='fullcalendar/list/main.js')
-    script(src='fullcalendar/moment/main.js')
-    script(src='fullcalendar/bootstrap/main.js')
-    script(src='fullcalendar/timegrid/main.js')
-    script(src='fullcalendar/interaction/main.js')
-    script(src='fullcalendar/rrule/main.js')
-    script(src='fullcalendar/luxon/main.js')
-    
-    script(src='fullcalendar/google-calendar/main.js')
-    //script(src='fullcalendar/lib/jquery.min.js') // file not found
-    //script(src='fullcalendar/lib/moment.min.js') // file not found
-    script.
-      document.addEventListener('DOMContentLoaded', function() {
-      var calendarE0 = document.getElementById('calendar_all');
-      var calendar = new FullCalendar.Calendar(calendarE0, {
-      plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
-      header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'month,dayGridMonth,listYear'
-      },
-      //displayEventTime: false, // don't show the time column in list view
-      googleCalendarApiKey: 'AIzaSyC_mWruJZ1BBBYtqFOd4isekFRKOOAKChM',
-      eventSources: [
-        {
-          googleCalendarId: '1b6t3ab0q9f4fdf5jf7lou0n2k@group.calendar.google.com',
-          color: 'purple'
-        },
-        {
-          googleCalendarId: 'm177m8gpcul33cittkr9orgn2c@group.calendar.google.com',
-          color: 'blue'
-        },
-        {
-          googleCalendarId: 'h64gs6eub1o4sfkudpopmeuvqk@group.calendar.google.com',
-          color: 'pink'
-        },
-        {
-          googleCalendarId: 'r5ova3ln860o8v08c6pb826jvs@group.calendar.google.com',
-          color: 'green'
-        },
-        {
-          googleCalendarId: '43h56k493csaghvtu61ukhja28@group.calendar.google.com',
-          color: 'orange'
-        }
-      ],
-      //events: 'en.usa#holiday@group.v.calendar.google.com',
-      eventClick: function(arg) {
-      // opens events in a popup window
-      window.open(arg.event.url, '_blank', 'width=700,height=600');
-      // prevents current tab from navigating
-      arg.jsEvent.preventDefault();
-      }
-      });
-      calendar.render();
-      });
-
-      // cal01
-      document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar_01');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-      plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
-      header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'month,dayGridMonth,listYear'
-      },
-      //displayEventTime: false, // don't show the time column in list view
-      googleCalendarApiKey: 'AIzaSyC_mWruJZ1BBBYtqFOd4isekFRKOOAKChM',
-      eventSources: [
-        {
-          googleCalendarId: '1b6t3ab0q9f4fdf5jf7lou0n2k@group.calendar.google.com',
-          color: '#B7950B'
-        }
-      ],
-      //events: 'en.usa#holiday@group.v.calendar.google.com',
-      eventClick: function(arg) {
-      // opens events in a popup window
-      window.open(arg.event.url, '_blank', 'width=700,height=600');
-      // prevents current tab from navigating
-      arg.jsEvent.preventDefault();
-      }
-      });
-      calendar.render();
-      });
-
-      //cal02
-      document.addEventListener('DOMContentLoaded', function() {
-      var calendarE2 = document.getElementById('calendar_02');
-      var calendar = new FullCalendar.Calendar(calendarE2, {
-      plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
-      header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'month,dayGridMonth,listYear'
-      },
-      //displayEventTime: false, // don't show the time column in list view
-      googleCalendarApiKey: 'AIzaSyC_mWruJZ1BBBYtqFOd4isekFRKOOAKChM',
-      eventSources: [
-        {
-          googleCalendarId: 'm177m8gpcul33cittkr9orgn2c@group.calendar.google.com',
-          color: 'purple'
-        }
-      ],
-      //events: 'en.usa#holiday@group.v.calendar.google.com',
-      eventClick: function(arg) {
-      // opens events in a popup window
-      window.open(arg.event.url, '_blank', 'width=700,height=600');
-      // prevents current tab from navigating
-      arg.jsEvent.preventDefault();
-      }
-      });
-      calendar.render();
-      });      
-
-      //cal03
-      document.addEventListener('DOMContentLoaded', function() {
-      var calendarE3 = document.getElementById('calendar_03');
-      var calendar = new FullCalendar.Calendar(calendarE3, {
-      plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
-      header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'month,dayGridMonth,listYear'
-      },
-      //displayEventTime: false, // don't show the time column in list view
-      googleCalendarApiKey: 'AIzaSyC_mWruJZ1BBBYtqFOd4isekFRKOOAKChM',
-      eventSources: [
-        {
-          googleCalendarId: 'h64gs6eub1o4sfkudpopmeuvqk@group.calendar.google.com',
-          color: 'teal'
-        }
-      ],
-      //events: 'en.usa#holiday@group.v.calendar.google.com',
-      eventClick: function(arg) {
-      // opens events in a popup window
-      window.open(arg.event.url, '_blank', 'width=700,height=600');
-      // prevents current tab from navigating
-      arg.jsEvent.preventDefault();
-      }
-      });
-      calendar.render();
-      });
-
-      //cal04
-      document.addEventListener('DOMContentLoaded', function() {
-      var calendarE4 = document.getElementById('calendar_04');
-      var calendar = new FullCalendar.Calendar(calendarE4, {
-      plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
-      header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'month,dayGridMonth,listYear'
-      },
-      //displayEventTime: false, // don't show the time column in list view
-      googleCalendarApiKey: 'AIzaSyC_mWruJZ1BBBYtqFOd4isekFRKOOAKChM',
-      eventSources: [
-        {
-          googleCalendarId: 'r5ova3ln860o8v08c6pb826jvs@group.calendar.google.com',
-          color: '#283747'
-        }
-      ],
-      //events: 'en.usa#holiday@group.v.calendar.google.com',
-      eventClick: function(arg) {
-      // opens events in a popup window
-      window.open(arg.event.url, '_blank', 'width=700,height=600');
-      // prevents current tab from navigating
-      arg.jsEvent.preventDefault();
-      }
-      });
-      calendar.render();
-      });
-
-      //cal05
-      document.addEventListener('DOMContentLoaded', function() {
-      var calendarE5 = document.getElementById('calendar_05');
-      var calendar = new FullCalendar.Calendar(calendarE5, {
-      plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
-      header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'month,dayGridMonth,listYear'
-      },
-      //displayEventTime: false, // don't show the time column in list view
-      googleCalendarApiKey: 'AIzaSyC_mWruJZ1BBBYtqFOd4isekFRKOOAKChM',
-      eventSources: [
-        {
-          googleCalendarId: '43h56k493csaghvtu61ukhja28@group.calendar.google.com',
-          color: 'orange'
-        }
-      ],
-      //events: 'en.usa#holiday@group.v.calendar.google.com',
-      eventClick: function(arg) {
-      // opens events in a popup window
-      window.open(arg.event.url, '_blank', 'width=700,height=600');
-      // prevents current tab from navigating
-      arg.jsEvent.preventDefault();
-      }
-      });
-      calendar.render();
-      });
-
+    include includes/calendar.pug
 
   body.goto-here
     include includes/nav.pug
@@ -307,11 +100,19 @@ html(lang='en')
         .container#tab_container
           .tab
             button#defaultOpen.tablinks(onclick="openCalendar(event, 'all')") All
-            button#btn01.tablinks(onclick="openCalendar(event, 'cal01')") Dining Hall 01
-            button#btn02.tablinks(onclick="openCalendar(event, 'cal02')") Comm Hall 02
-            button#btn03.tablinks(onclick="openCalendar(event, 'cal03')") Study Room 03
-            button#btn04.tablinks(onclick="openCalendar(event, 'cal04')") Marketing Room 04
-            button#btn05.tablinks(onclick="openCalendar(event, 'cal05')") Incub Room 05
+            button#btn01.tablinks(onclick="openCalendar(event, 'cal01')") Comm Hall 01
+            button#btn02.tablinks(onclick="openCalendar(event, 'cal02')") Dining Hall 02
+            button#btn03.tablinks(onclick="openCalendar(event, 'cal03')") Heritage Room 03
+            button#btn04.tablinks(onclick="openCalendar(event, 'cal04')") Multi Purpose Court 04
+            button#btn05.tablinks(onclick="openCalendar(event, 'cal05')") Squash Court 05
+            button#defaultOpen.tablinks(onclick="openCalendar(event, 'cal06')") Tennis Court 06
+            button#btn01.tablinks(onclick="openCalendar(event, 'cal07')") KEWOC Room 07
+            button#btn02.tablinks(onclick="openCalendar(event, 'cal08')") Marketing Room 08
+            button#btn03.tablinks(onclick="openCalendar(event, 'cal09')") Dance Studio 09
+            button#btn04.tablinks(onclick="openCalendar(event, 'cal10')") Recreation Room 10
+            button#btn05.tablinks(onclick="openCalendar(event, 'cal11')") BBQ Pit 11
+            button#defaultOpen.tablinks(onclick="openCalendar(event, 'cal12')") Incub Room 12
+            button#btn01.tablinks(onclick="openCalendar(event, 'cal13')") Band Room 13           
         br  
         #all.tabcontent
           #calendar_all
@@ -325,6 +126,22 @@ html(lang='en')
           #calendar_04
         #cal05.tabcontent
           #calendar_05
+        #cal06.tabcontent
+          #calendar_06
+        #cal07.tabcontent
+          #calendar_07
+        #cal08.tabcontent
+          #calendar_08
+        #cal09.tabcontent
+          #calendar_09
+        #cal10.tabcontent
+          #calendar_10 
+        #cal11.tabcontent
+          #calendar_11
+        #cal12.tabcontent
+          #calendar_12
+        #cal13.tabcontent
+          #calendar_13                 
         br  
         br
 
