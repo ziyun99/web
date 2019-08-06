@@ -57,8 +57,9 @@ html(lang='en')
       /* Style the tab content */
       .tabcontent {
       display: none;
-      padding: 0% 6%;
+      padding: 0% 8%;
       border: none;
+      width: 92%;
       }
       #btn01 {
       color: purple;
@@ -95,7 +96,49 @@ html(lang='en')
     // CONTENT
 
     section.ftco-section.contact-section.bg-light
-      // CALENDAR
+      .container
+        .row.d-flex.justify-content-center.mb-5.contact-info(style='margin-top: -100px;')
+          .col.col-lg-8.col-md-6.mt-5.cart-wrap.ftco-animate
+              h4 Get to know KEVII Booking System...
+              ul
+                li
+                  | This procedure only applies to hall CCAs and Student Interest Groups (SIGs) for any ad-hoc events, meetings or activities within the hall. For external event engagement bookings, please email KEH help (kehhelp@nus.edu.sg) directly.
+                li
+                  | The following venues are available for booking by filling in the form:
+                  ol
+                    li Communal Hall
+                    li Multi-Purpose Sports Court (MPC)
+                    li Tennis Court
+                    li Squash Court 
+                    li Dance Studio[2][3] 
+                    li Marketing Room
+                    li Dining Hall
+                    li Heritage Room
+                  br
+                  ul
+                    li Booking priority of Dance Studio goes to KE Dance.
+                    li
+                      | Bookings for Dance studio are subject to additional regulations as stated in documents found in the 63rd Online Resources. CCAs that book these rooms are to adhere to the additional regulations strictly.
+                    li
+                      | Meeting Room 2 and Incubation Room are not available for booking unless all other rooms are unavailable for booking. In such a case, please email Kellie at (kellie@nus.edu.sg) and CC JCRC at (KEHJCRC@nus.edu.sg).
+                    li
+                      | Bookings for Band Room are subject to additional regulations as stated in documents found in the 63rd Online Resources. CCAs that book these rooms are to adhere to the additional regulations strictly.
+                li
+                  | Precedence in booking is as follows: Hall-Wide Events > Block-Wide Events > CCA Activities
+                li
+                  | In the event a particular venue is already booked by a CCA, and a second CCA which wishes to book during the same time, the latter may seek the opinion of the former. Do note that precedence will be given to the first CCA as it is an earlier booking. It is also up to the former CCA to decide if they are willing to give way or share the venue with the second CCA.
+                  | *“CCAs” shall be deemed to include SIGs.
+                li
+                  | For booking cancellations, please email Darieca (dariecalim@u.nus.edu) stating your name, booking date and time. Should any CCA been found booking and not utilising the venue at stipulated time, booking priority for the CCA will be penalised.
+                li
+                  | CCAs holding current bookings will be held liable for any loss or damage to furnishings, equipment, and/or facilities. CCAs are to ensure cleanliness of venues after the end of their event.
+                li
+                  | Bookings are subject to availability of the venue and nature of the event. Upon successful booking, the JCRC will inform you.
+                li
+                  | JCRC reserves the right on the final decision on allocation of venues. JCRC also reserves the right to revoke, change or otherwise amend any prior bookings with due notice.
+                li Those who do not adhere to the system will not be entertained. 
+
+      // CALENDAR TABS
       .row.justify-content-center
         .container#tab_container
           .tab
@@ -111,9 +154,10 @@ html(lang='en')
             button#btn03.tablinks(onclick="openCalendar(event, 'cal09')") Dance Studio 09
             button#btn04.tablinks(onclick="openCalendar(event, 'cal10')") Recreation Room 10
             button#btn05.tablinks(onclick="openCalendar(event, 'cal11')") BBQ Pit 11
-            button#defaultOpen.tablinks(onclick="openCalendar(event, 'cal12')") Incub Room 12
-            button#btn01.tablinks(onclick="openCalendar(event, 'cal13')") Band Room 13           
+            button#defaultOpen.tablinks(onclick="openCalendar(event, 'cal12')") Band Room 12
+            //button#btn01.tablinks(onclick="openCalendar(event, 'cal13')") Incub Room 13           
         br  
+        // CALENDAR DISPLAY
         #all.tabcontent
           #calendar_all
         #cal01.tabcontent
@@ -140,13 +184,33 @@ html(lang='en')
           #calendar_11
         #cal12.tabcontent
           #calendar_12
-        #cal13.tabcontent
-          #calendar_13                 
+        //-
+          #cal13.tabcontent
+            #calendar_13                 
         br  
         br
 
+      #modal0.modal
+        form.modal-content(action='/action_page.php', style='padding:20px;')
+          h2 Event Details
+            hr(style='border: 1px solid #f1f1f1; margin-bottom: 25px;')
+          h4
+            //| Venue: 
+            //span#ev_venue  
+            //br
+            |         Booked by CCA: 
+            span#ev_cca_name  
+            br
+            |         Start time: 
+            span#ev_starttime  
+            br
+            |         End Time: 
+            span#ev_endtime  
+            br
+          button.cancelbtn(type='button', onclick="document.getElementById('modal0').style.display='none'", style='float: centre; width: 50%;   padding: 14px 20px; background-color: #f44336;') OK
+
       // BOOKING FORM
-      .container#form_container
+      .container#form_container(style='margin-top: 40px;')
         .row.justify-content-center
           
           //action='/feedback-res-sent', , method='post', enctype='multipart/form-data'
@@ -180,8 +244,8 @@ html(lang='en')
                     option(value='Dance Studio 09') Dance Studio 09
                     option(value='Recreation Room 10') Recreation Room 10
                     option(value='BBQ Pit 11') BBQ Pit 11
-                    option(value='Incub Room 12') Incub Room 12
-                    option(value='Band Room 13') Band Room 13                    
+                    option(value='Band Room 12') Band Room 12
+                    //option(value='Incub Room 13') Incub Room 13                    
               .col-md-6
                 .form-group
                   label(for='email') Email
@@ -190,7 +254,7 @@ html(lang='en')
               .col-md-4
                 .form-group
                   label(for='date') Date
-                  input#date.form-control(type='date', name='date', required='required', max='2019-12-31')
+                  input#date.form-control(type='date', name='date', required='required', max='2020-7-31')
               .col-md-4
                 .form-group
                   label(for='starttime') Start Time
@@ -249,6 +313,13 @@ html(lang='en')
       // Get the element with id="defaultOpen" and click on it
       document.getElementById("defaultOpen").click();      
                 
-    
+    script. 
+      var modal0 = document.getElementById('modal0');
+      window.onclick = function(event) {
+      if (event.target == modal0) {
+      modal0.style.display = "none";
+      }
+      }
+
     // FOOTER
     include includes/footer.pug

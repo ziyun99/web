@@ -1,11 +1,129 @@
+style.
+  .popper,
+  .tooltip {
+  position: absolute;
+  z-index: 9999;
+  background: #FFC107;
+  color: black;
+  width: 150px;
+  border-radius: 3px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  padding: 10px;
+  text-align: center;
+  }
+  .style5 .tooltip {
+  background: #1E252B;
+  color: #FFFFFF;
+  max-width: 200px;
+  width: auto;
+  font-size: .8rem;
+  padding: .5em 1em;
+  }
+  .popper .popper__arrow,
+  .tooltip .tooltip-arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  margin: 5px;
+  }
+  .tooltip .tooltip-arrow,
+  .popper .popper__arrow {
+  border-color: #FFC107;
+  }
+  .style5 .tooltip .tooltip-arrow {
+  border-color: #1E252B;
+  }
+  .popper[x-placement^="top"],
+  .tooltip[x-placement^="top"] {
+  margin-bottom: 5px;
+  }
+  .popper[x-placement^="top"] .popper__arrow,
+  .tooltip[x-placement^="top"] .tooltip-arrow {
+  border-width: 5px 5px 0 5px;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  bottom: -5px;
+  left: calc(50% - 5px);
+  margin-top: 0;
+  margin-bottom: 0;
+  }
+  .popper[x-placement^="bottom"],
+  .tooltip[x-placement^="bottom"] {
+  margin-top: 5px;
+  }
+  .tooltip[x-placement^="bottom"] .tooltip-arrow,
+  .popper[x-placement^="bottom"] .popper__arrow {
+  border-width: 0 5px 5px 5px;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  top: -5px;
+  left: calc(50% - 5px);
+  margin-top: 0;
+  margin-bottom: 0;
+  }
+  .tooltip[x-placement^="right"],
+  .popper[x-placement^="right"] {
+  margin-left: 5px;
+  }
+  .popper[x-placement^="right"] .popper__arrow,
+  .tooltip[x-placement^="right"] .tooltip-arrow {
+  border-width: 5px 5px 5px 0;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  left: -5px;
+  top: calc(50% - 5px);
+  margin-left: 0;
+  margin-right: 0;
+  }
+  .popper[x-placement^="left"],
+  .tooltip[x-placement^="left"] {
+  margin-right: 5px;
+  }
+  .popper[x-placement^="left"] .popper__arrow,
+  .tooltip[x-placement^="left"] .tooltip-arrow {
+  border-width: 5px 0 5px 5px;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  right: -5px;
+  top: calc(50% - 5px);
+  margin-left: 0;
+  margin-right: 0;
+  }
+  .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 80px;
+  }
+  /* Modal Content/Box */
+  .modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  }  
+
 
 //using fullcalendar to display bookings/event from google calendar 
 link(href='fullcalendar/core/main.css', rel='stylesheet')
 link(href='fullcalendar/daygrid/main.css', rel='stylesheet')
+link(href='fullcalendar/list/main.css', rel='stylesheet')
+
 script(src='fullcalendar/core/main.js')
 script(src='fullcalendar/daygrid/main.js')
-
 script(src='fullcalendar/list/main.js')
+
 script(src='fullcalendar/moment/main.js')
 script(src='fullcalendar/bootstrap/main.js')
 script(src='fullcalendar/timegrid/main.js')
@@ -17,85 +135,119 @@ script(src='fullcalendar/google-calendar/main.js')
 //script(src='fullcalendar/lib/jquery.min.js') // file not found
 //script(src='fullcalendar/lib/moment.min.js') // file not found
 script.
+
+  var id01 = '1b6t3ab0q9f4fdf5jf7lou0n2k@group.calendar.google.com';
+  var id02 = 'm177m8gpcul33cittkr9orgn2c@group.calendar.google.com';
+  var id03 = 'h64gs6eub1o4sfkudpopmeuvqk@group.calendar.google.com';
+  var id04 = 'r5ova3ln860o8v08c6pb826jvs@group.calendar.google.com';
+  var id05 = '43h56k493csaghvtu61ukhja28@group.calendar.google.com';
+  var id06 = 'nu6l4484tha02sfsoc4q9kkl44@group.calendar.google.com';
+  var id07 = 'g5ampfhi5lqaf28pl4o96s9fdo@group.calendar.google.com';
+  var id08 = 'c7127i4vdt36ol6g84lveigrh0@group.calendar.google.com';
+  var id09 = 'c4218fk4c7d98trqruuch7cmq0@group.calendar.google.com';
+  var id10 = '46jej0q62v83g3rr5v84o3o40k@group.calendar.google.com';
+  var id11 = '4og7k4dqv9e61a3ci8nl1isvoo@group.calendar.google.com';
+  var id12 = '0qhekf69gpd84m01ngprgk4u38@group.calendar.google.com';
+
   document.addEventListener('DOMContentLoaded', function() {
   var calendarE0 = document.getElementById('calendar_all');
-  var calendar = new FullCalendar.Calendar(calendarE0, {
+  var calendar0 = new FullCalendar.Calendar(calendarE0, {
   plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
   header: {
   left: 'prev,next today',
   center: 'title',
   right: 'month,dayGridMonth,listYear'
   },
+
+
   //displayEventTime: false, // don't show the time column in list view
   googleCalendarApiKey: 'AIzaSyC_mWruJZ1BBBYtqFOd4isekFRKOOAKChM',
   eventSources: [
     {
-      googleCalendarId: '1b6t3ab0q9f4fdf5jf7lou0n2k@group.calendar.google.com',
+      googleCalendarId: id01,
       color: 'purple'   // cal01
     },
     {
-      googleCalendarId: 'm177m8gpcul33cittkr9orgn2c@group.calendar.google.com',
+      googleCalendarId: id02,
       color: 'blue'  // cal02
     },
     {
-      googleCalendarId: 'h64gs6eub1o4sfkudpopmeuvqk@group.calendar.google.com',
+      googleCalendarId: id03,
       color: 'pink'  // cal03
     },
     {
-      googleCalendarId: 'r5ova3ln860o8v08c6pb826jvs@group.calendar.google.com',
+      googleCalendarId: id04,
       color: 'green'  // cal04
     },
     {
-      googleCalendarId: '43h56k493csaghvtu61ukhja28@group.calendar.google.com',
+      googleCalendarId: id05,
       color: 'orange'  // cal05
     },
     {
-      googleCalendarId: 'nu6l4484tha02sfsoc4q9kkl44@group.calendar.google.com',
+      googleCalendarId: id06,
       color: 'purple'  // cal06
     },
     {
-      googleCalendarId: 'g5ampfhi5lqaf28pl4o96s9fdo@group.calendar.google.com',
+      googleCalendarId: id07,
       color: 'blue'  // cal07
     },
     {
-      googleCalendarId: 'c7127i4vdt36ol6g84lveigrh0@group.calendar.google.com',
+      googleCalendarId: id08,
       color: 'pink'  // cal08
     },
     {
-      googleCalendarId: 'c4218fk4c7d98trqruuch7cmq0@group.calendar.google.com',
+      googleCalendarId: id09,
       color: 'green'  // cal09
     },
     {
-      googleCalendarId: '46jej0q62v83g3rr5v84o3o40k@group.calendar.google.com',
+      googleCalendarId: id10,
       color: 'orange'  // cal10
     },
     {
-      googleCalendarId: '4og7k4dqv9e61a3ci8nl1isvoo@group.calendar.google.com',
+      googleCalendarId: id11,
       color: 'purple'  // cal11
     },
     {
-      googleCalendarId: '0qhekf69gpd84m01ngprgk4u38@group.calendar.google.com',
+      googleCalendarId: id12,
       color: 'blue'  // cal12
-    },
-    {
-      googleCalendarId: '3il17if1pjko4qnuu68gt9sf9s@group.calendar.google.com',
-      color: 'pink'  // cal13
-    }              
+    }//,
+    //{
+    //  googleCalendarId: '3il17if1pjko4qnuu68gt9sf9s@group.calendar.google.com',
+    //  color: 'pink'  // cal13
+    //}              
   ],
-  eventClick: function(arg) {
-  // opens events in a popup window
-  //window.open(arg.event.url, '_blank', 'width=700,height=600');
+
+  eventClick: function(info) {
   // prevents current tab from navigating
-  arg.jsEvent.preventDefault();
-  }
+  info.jsEvent.preventDefault();
+  var eventObj = info.event;
+  document.getElementById('modal0').style.display='block';
+  //if (eventObj.backgroundColor == 'purple') {
+  //document.getElementById('ev_venue').innerHTML="Comm Hall 01";} else {
+  //document.getElementById('ev_venue').innerHTML="unknown place ohno";
+  //}         
+  document.getElementById('ev_cca_name').innerHTML=eventObj.title;
+
+  var str1 = eventObj.start.toString();
+  var str2 = eventObj.end.toString();
+  var start_time = str1.split("GMT", 1);
+  var end_time = str2.split("GMT", 1);
+  document.getElementById('ev_starttime').innerHTML=start_time;
+  document.getElementById('ev_endtime').innerHTML=end_time;
+  },  
+
   });
-  calendar.render();
+  calendar0.render();
   });
+  
+
+
 
   // cal01
+  function open_cal01 (){
   document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar_01');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
+  var calendar1 = new FullCalendar.Calendar(calendarEl, {
   plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
   header: {
   left: 'prev,next today',
@@ -117,13 +269,15 @@ script.
   arg.jsEvent.preventDefault();
   }
   });
-  calendar.render();
+  calendar1.render();
   });
+  alert("bye");
+  }
 
   //cal02
   document.addEventListener('DOMContentLoaded', function() {
   var calendarE2 = document.getElementById('calendar_02');
-  var calendar = new FullCalendar.Calendar(calendarE2, {
+  var calendar2 = new FullCalendar.Calendar(calendarE2, {
   plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
   header: {
   left: 'prev,next today',
@@ -142,13 +296,13 @@ script.
   arg.jsEvent.preventDefault();
   }
   });
-  calendar.render();
+  calendar2.render();
   });      
 
   //cal03
   document.addEventListener('DOMContentLoaded', function() {
   var calendarE3 = document.getElementById('calendar_03');
-  var calendar = new FullCalendar.Calendar(calendarE3, {
+  var calendar3 = new FullCalendar.Calendar(calendarE3, {
   plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
   header: {
   left: 'prev,next today',
@@ -166,13 +320,13 @@ script.
   arg.jsEvent.preventDefault();
   }
   });
-  calendar.render();
+  calendar3.render();
   });
 
   //cal04
   document.addEventListener('DOMContentLoaded', function() {
   var calendarE4 = document.getElementById('calendar_04');
-  var calendar = new FullCalendar.Calendar(calendarE4, {
+  var calendar4 = new FullCalendar.Calendar(calendarE4, {
   plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
   header: {
   left: 'prev,next today',
@@ -191,13 +345,13 @@ script.
   arg.jsEvent.preventDefault();
   }
   });
-  calendar.render();
+  calendar4.render();
   });
 
   //cal05
   document.addEventListener('DOMContentLoaded', function() {
   var calendarE5 = document.getElementById('calendar_05');
-  var calendar = new FullCalendar.Calendar(calendarE5, {
+  var calendar5 = new FullCalendar.Calendar(calendarE5, {
   plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
   header: {
   left: 'prev,next today',
@@ -216,13 +370,13 @@ script.
   arg.jsEvent.preventDefault();
   }
   });
-  calendar.render();
+  calendar5.render();
   });
 
   //cal06
   document.addEventListener('DOMContentLoaded', function() {
   var calendarE6 = document.getElementById('calendar_06');
-  var calendar = new FullCalendar.Calendar(calendarE6, {
+  var calendar6 = new FullCalendar.Calendar(calendarE6, {
   plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
   header: {
   left: 'prev,next today',
@@ -241,13 +395,13 @@ script.
   arg.jsEvent.preventDefault();
   }
   });
-  calendar.render();
+  calendar6.render();
   });
 
   //cal07
   document.addEventListener('DOMContentLoaded', function() {
   var calendarE7 = document.getElementById('calendar_07');
-  var calendar = new FullCalendar.Calendar(calendarE7, {
+  var calendar7 = new FullCalendar.Calendar(calendarE7, {
   plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
   header: {
   left: 'prev,next today',
@@ -266,13 +420,13 @@ script.
   arg.jsEvent.preventDefault();
   }
   });
-  calendar.render();
+  calendar7.render();
   });  
 
   //cal08
   document.addEventListener('DOMContentLoaded', function() {
   var calendarE8 = document.getElementById('calendar_08');
-  var calendar = new FullCalendar.Calendar(calendarE8, {
+  var calendar8 = new FullCalendar.Calendar(calendarE8, {
   plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
   header: {
   left: 'prev,next today',
@@ -291,13 +445,13 @@ script.
   arg.jsEvent.preventDefault();
   }
   });
-  calendar.render();
+  calendar8.render();
   });  
   
   //cal09
   document.addEventListener('DOMContentLoaded', function() {
   var calendarE9 = document.getElementById('calendar_09');
-  var calendar = new FullCalendar.Calendar(calendarE9, {
+  var calendar9 = new FullCalendar.Calendar(calendarE9, {
   plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
   header: {
   left: 'prev,next today',
@@ -316,13 +470,13 @@ script.
   arg.jsEvent.preventDefault();
   }
   });
-  calendar.render();
+  calendar9.render();
   });  
 
   //cal10
   document.addEventListener('DOMContentLoaded', function() {
   var calendarE10 = document.getElementById('calendar_10');
-  var calendar = new FullCalendar.Calendar(calendarE10, {
+  var calendar10 = new FullCalendar.Calendar(calendarE10, {
   plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
   header: {
   left: 'prev,next today',
@@ -341,13 +495,13 @@ script.
   arg.jsEvent.preventDefault();
   }
   });
-  calendar.render();
+  calendar10.render();
   });    
   
   //cal11
   document.addEventListener('DOMContentLoaded', function() {
   var calendarE11 = document.getElementById('calendar_11');
-  var calendar = new FullCalendar.Calendar(calendarE11, {
+  var calendar11 = new FullCalendar.Calendar(calendarE11, {
   plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
   header: {
   left: 'prev,next today',
@@ -366,13 +520,13 @@ script.
   arg.jsEvent.preventDefault();
   }
   });
-  calendar.render();
+  calendar11.render();
   });    
   
   //cal12
   document.addEventListener('DOMContentLoaded', function() {
   var calendarE12 = document.getElementById('calendar_12');
-  var calendar = new FullCalendar.Calendar(calendarE12, {
+  var calendar12 = new FullCalendar.Calendar(calendarE12, {
   plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
   header: {
   left: 'prev,next today',
@@ -391,13 +545,13 @@ script.
   arg.jsEvent.preventDefault();
   }
   });
-  calendar.render();
+  calendar12.render();
   });      
 
   //cal13
   document.addEventListener('DOMContentLoaded', function() {
   var calendarE13 = document.getElementById('calendar_13');
-  var calendar = new FullCalendar.Calendar(calendarE13, {
+  var calendar13 = new FullCalendar.Calendar(calendarE13, {
   plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
   header: {
   left: 'prev,next today',
@@ -416,7 +570,7 @@ script.
   arg.jsEvent.preventDefault();
   }
   });
-  calendar.render();
+  //calendar13.render();
   });      
 
 

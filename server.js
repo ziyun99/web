@@ -137,7 +137,7 @@ app.get('/announcement',(req,res) =>{
 
 app.get('/menu',(req,res) =>{
     accessSpreadsheet();
-    var breakfast1,breakfast2,breakfast3,breakfast4,breakfast5,meat1,meat2,meat3,vege1,vege2,vege3,side1,side2,side3,special1,special2,special3,fruitanddessert,soup;
+    var breakfast1,breakfast2,breakfast3,breakfast4,breakfast5,meat1,meat2,meat3,vege1,vege2,vege3,side1,side2,side3,side4,special1,special2,special3,fruitanddessert,soup;
     var i;    
     var d = new Date();
     for(i=0; i< rows_menu.length; i++ ){
@@ -156,6 +156,7 @@ app.get('/menu',(req,res) =>{
             side1 = rows_menu[i].side1;
             side2 = rows_menu[i].side2;
             side3 = rows_menu[i].side3;
+            side4 = rows_menu[i].side4;
             special1 = rows_menu[i].special1;
             special2 = rows_menu[i].special2;
             special3 = rows_menu[i].special3;
@@ -184,6 +185,7 @@ app.get('/menu',(req,res) =>{
         side1 :side1,
         side2 :side2,
         side3 :side3,
+        side4 :side4,
         special1 :special1,
         special2 :special2,
         special3 :special3,
