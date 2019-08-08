@@ -149,6 +149,26 @@ script.
   var id11 = '4og7k4dqv9e61a3ci8nl1isvoo@group.calendar.google.com';
   var id12 = '0qhekf69gpd84m01ngprgk4u38@group.calendar.google.com';
 
+  function displayModalFunction(info){
+  var eventObj = info.event;
+  //if (eventObj.backgroundColor == 'purple') {
+  //document.getElementById('ev_venue').innerHTML="Comm Hall 01";} else {
+  //document.getElementById('ev_venue').innerHTML="unknown place ohno";
+  //}         
+  document.getElementById('modal0').style.display='block';
+  var str = eventObj.title.toString();
+
+  document.getElementById('ev_venue').innerHTML=str.split("@")[1];
+
+  document.getElementById('ev_cca_name').innerHTML=str.split(" @ ")[0];
+  var str1 = eventObj.start.toString();
+  var str2 = eventObj.end.toString();
+  var start_time = str1.split("GMT", 1);
+  var end_time = str2.split("GMT", 1);
+  document.getElementById('ev_starttime').innerHTML=start_time;
+  document.getElementById('ev_endtime').innerHTML=end_time;
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
   var calendarE0 = document.getElementById('calendar_all');
   var calendar0 = new FullCalendar.Calendar(calendarE0, {
@@ -173,7 +193,7 @@ script.
     },
     {
       googleCalendarId: id03,
-      color: 'pink'  // cal03
+      color: 'hotpink'  // cal03
     },
     {
       googleCalendarId: id04,
@@ -185,55 +205,41 @@ script.
     },
     {
       googleCalendarId: id06,
-      color: 'purple'  // cal06
+      color: 'deeppink'  // cal06
     },
     {
       googleCalendarId: id07,
-      color: 'blue'  // cal07
+      color: 'cyan'  // cal07
     },
     {
       googleCalendarId: id08,
-      color: 'pink'  // cal08
+      color: 'indigo'  // cal08
     },
     {
       googleCalendarId: id09,
-      color: 'green'  // cal09
+      color: 'coral'  // cal09
     },
     {
       googleCalendarId: id10,
-      color: 'orange'  // cal10
+      color: 'teal'  // cal10
     },
     {
       googleCalendarId: id11,
-      color: 'purple'  // cal11
+      color: 'grey'  // cal11
     },
     {
       googleCalendarId: id12,
-      color: 'blue'  // cal12
+      color: 'maroon'  // cal12
     }//,
     //{
     //  googleCalendarId: '3il17if1pjko4qnuu68gt9sf9s@group.calendar.google.com',
-    //  color: 'pink'  // cal13
+    //  color: 'navy'  // cal13
     //}              
   ],
 
   eventClick: function(info) {
-  // prevents current tab from navigating
-  info.jsEvent.preventDefault();
-  var eventObj = info.event;
-  document.getElementById('modal0').style.display='block';
-  //if (eventObj.backgroundColor == 'purple') {
-  //document.getElementById('ev_venue').innerHTML="Comm Hall 01";} else {
-  //document.getElementById('ev_venue').innerHTML="unknown place ohno";
-  //}         
-  document.getElementById('ev_cca_name').innerHTML=eventObj.title;
-
-  var str1 = eventObj.start.toString();
-  var str2 = eventObj.end.toString();
-  var start_time = str1.split("GMT", 1);
-  var end_time = str2.split("GMT", 1);
-  document.getElementById('ev_starttime').innerHTML=start_time;
-  document.getElementById('ev_endtime').innerHTML=end_time;
+  info.jsEvent.preventDefault(info);
+  displayModalFunction(info);
   },  
 
   });
@@ -262,12 +268,11 @@ script.
       color: 'purple'
     }
   ],
-  eventClick: function(arg) {
-  // opens events in a popup window
-  //window.open(arg.event.url, '_blank', 'width=700,height=600');
-  // prevents current tab from navigating
-  arg.jsEvent.preventDefault();
-  }
+  eventClick: function(info) {
+  info.jsEvent.preventDefault(info);
+  displayModalFunction(info);
+  },  
+
   });
   calendar1.render();
   });
@@ -292,9 +297,10 @@ script.
       color: 'blue'
     }
   ],
-  eventClick: function(arg) {
-  arg.jsEvent.preventDefault();
-  }
+  eventClick: function(info) {
+  info.jsEvent.preventDefault(info);
+  displayModalFunction(info);
+  },  
   });
   calendar2.render();
   });      
@@ -316,9 +322,10 @@ script.
       color: 'pink'
     }
   ],
-  eventClick: function(arg) {
-  arg.jsEvent.preventDefault();
-  }
+  eventClick: function(info) {
+  info.jsEvent.preventDefault(info);
+  displayModalFunction(info);
+  },  
   });
   calendar3.render();
   });
@@ -341,9 +348,10 @@ script.
       color: 'green'
     }
   ],
-  eventClick: function(arg) {
-  arg.jsEvent.preventDefault();
-  }
+  eventClick: function(info) {
+  info.jsEvent.preventDefault(info);
+  displayModalFunction(info);
+  },  
   });
   calendar4.render();
   });
@@ -366,9 +374,10 @@ script.
       color: 'orange'
     }
   ],
-  eventClick: function(arg) {
-  arg.jsEvent.preventDefault();
-  }
+  eventClick: function(info) {
+  info.jsEvent.preventDefault(info);
+  displayModalFunction(info);
+  },  
   });
   calendar5.render();
   });
@@ -391,9 +400,10 @@ script.
       color: 'orange'
     }
   ],
-  eventClick: function(arg) {
-  arg.jsEvent.preventDefault();
-  }
+  eventClick: function(info) {
+  info.jsEvent.preventDefault(info);
+  displayModalFunction(info);
+  },  
   });
   calendar6.render();
   });
@@ -416,9 +426,10 @@ script.
       color: 'orange'
     }
   ],
-  eventClick: function(arg) {
-  arg.jsEvent.preventDefault();
-  }
+  eventClick: function(info) {
+  info.jsEvent.preventDefault(info);
+  displayModalFunction(info);
+  },  
   });
   calendar7.render();
   });  
@@ -441,9 +452,10 @@ script.
       color: 'orange'
     }
   ],
-  eventClick: function(arg) {
-  arg.jsEvent.preventDefault();
-  }
+  eventClick: function(info) {
+  info.jsEvent.preventDefault(info);
+  displayModalFunction(info);
+  },  
   });
   calendar8.render();
   });  
@@ -466,9 +478,10 @@ script.
       color: 'orange'
     }
   ],
-  eventClick: function(arg) {
-  arg.jsEvent.preventDefault();
-  }
+  eventClick: function(info) {
+  info.jsEvent.preventDefault(info);
+  displayModalFunction(info);
+  },  
   });
   calendar9.render();
   });  
@@ -491,9 +504,10 @@ script.
       color: 'orange'
     }
   ],
-  eventClick: function(arg) {
-  arg.jsEvent.preventDefault();
-  }
+  eventClick: function(info) {
+  info.jsEvent.preventDefault(info);
+  displayModalFunction(info);
+  },  
   });
   calendar10.render();
   });    
@@ -516,9 +530,10 @@ script.
       color: 'orange'
     }
   ],
-  eventClick: function(arg) {
-  arg.jsEvent.preventDefault();
-  }
+  eventClick: function(info) {
+  info.jsEvent.preventDefault(info);
+  displayModalFunction(info);
+  },  
   });
   calendar11.render();
   });    
@@ -541,9 +556,10 @@ script.
       color: 'orange'
     }
   ],
-  eventClick: function(arg) {
-  arg.jsEvent.preventDefault();
-  }
+  eventClick: function(info) {
+  info.jsEvent.preventDefault(info);
+  displayModalFunction(info);
+  },  
   });
   calendar12.render();
   });      
@@ -566,9 +582,10 @@ script.
       color: 'orange'
     }
   ],
-  eventClick: function(arg) {
-  arg.jsEvent.preventDefault();
-  }
+  eventClick: function(info) {
+  info.jsEvent.preventDefault(info);
+  displayModalFunction(info);
+  },  
   });
   //calendar13.render();
   });      

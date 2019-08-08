@@ -68,13 +68,37 @@ html(lang='en')
       color: blue;
       }
       #btn03 {
-      color: pink;
+      color: hotpink;
       }
       #btn04 {
       color: green;
       }
       #btn05 {
       color: orange;
+      }
+      #btn06 {
+      color: deeppink;
+      }
+      #btn07 {
+      color: cyan;
+      }
+      #btn08 {
+      color: indigo;
+      }
+      #btn09 {
+      color: coral;
+      }
+      #btn10 {
+      color: teal;
+      }
+      #btn11 {
+      color: grey;
+      }
+      #btn12 {
+      color: maroon;
+      }
+      #btn13 {
+      color: navy;
       }
  
     //calendar
@@ -168,14 +192,14 @@ html(lang='en')
             button#btn03.tablinks(onclick="openCalendar(event, 'cal03')") Heritage Room 03
             button#btn04.tablinks(onclick="openCalendar(event, 'cal04')") Multi Purpose Court 04
             button#btn05.tablinks(onclick="openCalendar(event, 'cal05')") Squash Court 05
-            button#defaultOpen.tablinks(onclick="openCalendar(event, 'cal06')") Tennis Court 06
-            button#btn01.tablinks(onclick="openCalendar(event, 'cal07')") KEWOC Room 07
-            button#btn02.tablinks(onclick="openCalendar(event, 'cal08')") Marketing Room 08
-            button#btn03.tablinks(onclick="openCalendar(event, 'cal09')") Dance Studio 09
-            button#btn04.tablinks(onclick="openCalendar(event, 'cal10')") Recreation Room 10
-            button#btn05.tablinks(onclick="openCalendar(event, 'cal11')") BBQ Pit 11
-            button#defaultOpen.tablinks(onclick="openCalendar(event, 'cal12')") Band Room 12
-            //button#btn01.tablinks(onclick="openCalendar(event, 'cal13')") Incub Room 13           
+            button#btn06.tablinks(onclick="openCalendar(event, 'cal06')") Tennis Court 06
+            button#btn07.tablinks(onclick="openCalendar(event, 'cal07')") KEWOC Room 07
+            button#btn08.tablinks(onclick="openCalendar(event, 'cal08')") Marketing Room 08
+            button#btn09.tablinks(onclick="openCalendar(event, 'cal09')") Dance Studio 09
+            button#btn10.tablinks(onclick="openCalendar(event, 'cal10')") Recreation Room 10
+            button#btn11.tablinks(onclick="openCalendar(event, 'cal11')") BBQ Pit 11
+            button#btn12.tablinks(onclick="openCalendar(event, 'cal12')") Band Room 12
+            //button#btn13.tablinks(onclick="openCalendar(event, 'cal13')") Incub Room 13           
         br  
         // CALENDAR DISPLAY
         #all.tabcontent
@@ -218,13 +242,16 @@ html(lang='en')
             //| Venue: 
             //span#ev_venue  
             //br
-            |         Booked by CCA: 
+            | Venue       : 
+            span#ev_venue   
+            br          
+            | CCA         : 
             span#ev_cca_name  
             br
-            |         Start time: 
+            | Start time  : 
             span#ev_starttime  
             br
-            |         End Time: 
+            | End time    : 
             span#ev_endtime  
             br
           button.cancelbtn(type='button', onclick="document.getElementById('modal0').style.display='none'", style='float: centre; width: 50%;   padding: 14px 20px; background-color: #f44336;') OK
@@ -329,6 +356,9 @@ html(lang='en')
       }
       document.getElementById(calName).style.display = "block";
       evt.currentTarget.className += " active";
+
+      document.getElementsByClassName("fc-listYear-button").click();
+      document.getElementsByClassName("fc-dayGridMonth-button").click();
       }
       // Get the element with id="defaultOpen" and click on it
       document.getElementById("defaultOpen").click();      
