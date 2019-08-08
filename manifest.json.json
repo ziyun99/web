@@ -1,0 +1,17 @@
+{
+	"short_name": "KIWI",
+	"name": "KIWI",
+	"icons": [
+		{
+			"src":"public/images/kelogo",
+			"sizes": "225x225",
+			"type": "image/png"
+		}
+	],
+	"start_url": "/?utm_source=homescreen",
+	"background_color": "white",
+	"theme_color": "black",
+	"display": "standalone"
+}
+
+

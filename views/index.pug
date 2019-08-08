@@ -2,6 +2,12 @@ doctype html
 html(lang='en')
   head
     title KIWI Home
+
+    staticcontent
+      mimemap(fileextension='.json', mimetype='application/json')
+        mimemap(fileextension='.webmanifest', mimetype='application/manifest+json')
+    link(rel="manifest", crossorigin="use-credentials", href="/manifest.webmanifest")
+
     include includes/css_link.pug
 
   body.goto-here
