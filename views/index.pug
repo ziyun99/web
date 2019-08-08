@@ -2,21 +2,6 @@ doctype html
 html(lang='en')
   head
     title KIWI Home
-    link(rel="apple-touch-icon", sizes="180x180", href="logo/apple-touch-icon.png")
-    link(rel="icon", type="image/png", sizes="32x32", href="logo/favicon-32x32.png")
-    link(rel="icon", type="image/png", sizes="16x16", href="logo/favicon-16x16.png")
-    link(rel="manifest", href="logo/site.webmanifest")
-    link(rel="mask-icon", href="logo/safari-pinned-tab.svg", color="#5bbad5")
-    link(rel="shortcut icon", href="logo/favicon.ico")
-    meta(name="apple-mobile-web-app-title", content="KIWI")
-    meta(name="application-name", content="KIWI")
-    meta(name="msapplication-TileColor", content="#da532c")
-    meta(name="msapplication-config", content="logo/browserconfig.xml")
-    meta(name="theme-color", content="#b22121")    
-    staticcontent
-      mimemap(fileextension='.json', mimetype='application/json')
-        mimemap(fileextension='.webmanifest', mimetype='application/manifest+json')
-    link(rel="manifest", crossorigin="use-credentials", href="/manifest.webmanifest")
     include includes/css_link.pug
 
   body.goto-here
@@ -29,14 +14,14 @@ html(lang='en')
             p.breadcrumbs
               span.mr-2
                 a(href='/',style='color:white;') Home
-            h12.mb-0.bread(,style='color:white;') The One Stop Solution for All KEVIIANS
+            h12.mb-0.bread(,style='color:white;') An internal web system that make a KEVIIAN's life simple. :)
     // CONTENT
     section#home-section.hero
       .container
         .row.justify-content-center.mb-3.pb-3
-          .col-lg-12.text.ftco-animate
+          .col-lg-12.text.ftco-animate(style="padding-right: 10%; padding-left:10%;")
             .pt-3.mt-4
-              h5.mb-5 Announcements
+              h4.mb-5(style="text-shadow:1px 1px 4px rgb(160,160,160);") Announcements
               ul.comment-list
                 
                 li.comment
@@ -106,27 +91,36 @@ html(lang='en')
               .col-md-3.d-flex.justify-content-center.counter-wrap.ftco-animate
                 .block-18.text-center
                   .text
-                    strong.number(data-number='468',style='color:white; text-shadow: 0 0 3px #FF0000;') 0
-                    span(style='color:white;text-shadow: 2px 2px 4px #000000;' )
+                    strong.number(data-number='468',style='font-size:40px; color:white; text-shadow:2px 2px 4px #000000;') 0
+                    span(style='font-size:15px; color:white;text-shadow: 2px 2px 4px #000000;' )
                       strong Residents
               .col-md-3.d-flex.justify-content-center.counter-wrap.ftco-animate
                 .block-18.text-center
                   .text
-                    strong.number(data-number='5',style='color:white;text-shadow: 0 0 3px #FF0000;') 0
-                    span(style='color:white;text-shadow: 2px 2px 4px #000000;')
+                    strong.number(data-number='5',style='font-size:40px; color:white;text-shadow:2px 2px 4px #000000;') 0
+                    span(style='font-size:15px; color:white;text-shadow: 2px 2px 4px #000000;')
                       strong Blocks
               .col-md-3.d-flex.justify-content-center.counter-wrap.ftco-animate
                 .block-18.text-center
                   .text
-                    strong.number(data-number='66',style='color:white;text-shadow: 0 0 3px #FF0000;') 0
-                    span(style='color:white;text-shadow: 2px 2px 4px #000000;')
+                    strong.number(data-number='66',style='font-size:40px; color:white;text-shadow: 2px 2px 4px #000000;') 0
+                    span(style='font-size:15px; color:white;text-shadow: 2px 2px 4px #000000;')
                       strong CCAS
               .col-md-3.d-flex.justify-content-center.counter-wrap.ftco-animate
                 .block-18.text-center
                   .text
-                    strong.number(style='color:white; text-shadow: 0 0 3px #FF0000;') 1
-                    span(style='color:white;text-shadow: 2px 2px 4px #000000;')
+                    strong.number(style='font-size:40px; color:white; text-shadow: 2px 2px 4px #000000;') 1
+                    span(style='font-size:15px; color:white;text-shadow: 2px 2px 4px #000000;')
                       strong KE
-    
+    script.
+      if ('serviceWorker' in navigator) {
+      console.log("Will the service worker register?");
+      navigator.serviceWorker.register('service-worker.js')
+      .then(function(reg){
+      console.log("Yes, it did.");
+      }).catch(function(err) {
+      console.log("No it didn't. This happened: ", err)
+      });
+      }    
     // FOOTER
     include includes/footer.pug
