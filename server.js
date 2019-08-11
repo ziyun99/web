@@ -48,10 +48,14 @@ function getDailyMenu(row_menu){
 
     //return menu_items;
 }
+
 //read google spreadsheet
 async function accessSpreadsheet(){
-    var creds = require('./google-generated-creds.json');
-    
+    //var creds = require('google-generated-creds.json');
+    var creds = {
+        client_email: "kiwi-298@kiwi-244814.iam.gserviceaccount.com",
+        private_key: "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCYYzCMXNBdt1Ex\nPepwN8RmWWt5kMkcY4KneeZdkxJp2rQUmUXdmdSadp/2QJzCT5JpNnBbZ/6nJMpa\nAwWL66DxCBlu7zMoGAS32LQ2IypW0B15fwJftDqRjzkCbGT2Zc04cFyp/YgYuXeI\ncTieGycFBU37sb/T7W0nG7virGIrPXBgb1CPeZzLEcinvJQi25JQ21ainQI+SBrt\n/xFiPmY+SFWfIlBUQfcYFJahCngkAGY1vvQ3OuZG35Rzs9Unoe2o2sZnIdyeUmQ3\nbSW61EvuhwgQAWLvk5fV0z6WpBvpbwSn5Nxt6oTgjXVyBx3dWCH61IGaeWr3wcBS\nFhPHTbxnAgMBAAECggEAPcfpBN8UMwqBRl99zqUtYPlb01tZzcKiU9feB4365yOd\n4sQJSUB2q3DwhVvIshakmzdQ8h4FZipKR5f2BbYv98h61zjvGpAySX74AQLcxXl2\nma1efwKIxD62tD7R5/t56inTx69cH/oBdjXA6IjFlwmBhkuYJAmcOUDLOaj9291a\nmqZo3uhsTX98y+dRL7CA9oKI68+ib7MD8DDkDMBTEw69BqsejQgXZ8Eusg0bMk+Z\npiUSvLB413hGfygajpFC/syKxT+l6Dd5xKIi1UPc28xxLIrblOKk6WIkz6oJhd21\naa8gA2Y97tvW8K2bOkvV8AStfDT/XbCDgiqHD2c6oQKBgQDLfBpYl4RzGojxDw1o\nxSFk+LCyWPav5wdZYzKAMoCtN7rxXCZvKmaiYfePMbphnFbj2ru1HmT5jBY/dmKV\ntQKsocdelvqtB2oWR8ph+WjPCrWA6kep0dDWvH8kjU3vLxAxqqTELJR2k7e6cu/v\ne/UElYCmsPR2x44uXnYqwnek+QKBgQC/tyxBjCZO/y1E3MN4JZPwf+zUXNZNGxkG\na5fcnLVhbkii0TuJD259lY+absGEgjN7UxEJAkJNirxm+UjAqjek7AZ/tbEIArCO\nkOzmo8aw3S1W4tvZTKRjD9F9H7hS6/p5RlEEP4DIlykwrCXYsDW7aPawrvQgMarH\n+k+Z1vikXwKBgQC/E+GVkWphv+gaHR1lZb+vFkyunRXBJjvjd2ADu+jTP8L/RJ4e\nw30vPLmAMJ0pbeq1+j9Lm6gMIbz+iQeYNyq0uxIBQ9tPQegf1fg4ukDuMssvrE/x\nKsJl8wmdZEdrtBEL4oboZEhhdOMRZT7j7s2tKUpuvTpCk69y4WcrTgOV2QKBgDdi\nfomNKIAH3hcXw+yQxpVjD5MmIs7xtiARszSLnSbBioBm+9ETwTLMo0jVGFjkmGTX\nUYONwIPQQa9p8ueeBSdC/Hmmjrcmt8Tn/1h+FeeAbhm8vhCfwJnRtw5zvHdQLvMc\nKkmU4uqQKNkj0mcwOMWkhCf00xf94T2WhaqG3Rv3AoGAWTLJwPDWpVHBGqdZcxQ6\n6AsvTZg9hGZ0cQ5tMogYF7Wkhhk8YZXnXa5RbAfJgCwNMgKQXl0lRCftm+DJOysl\nu8R9Lv7oV9S5sGFM0MNyVWWqhKDhGOlrOKhi4++6bD5H2+8AzkiJ6FANvZ7Wv1kB\nROsnRyXby8PsNWyKQsfSNBQ=\n-----END PRIVATE KEY-----\n"
+    }
     const doc_announcement = new GoogleSpreadsheet('1DiiJoWOBCDOlu7AdBsuX5mgmOssgoFKkUOn8p95GrfU');
     const doc_eventposter = new GoogleSpreadsheet('15WuaRdyth4nJZTHV0isaG_xJUmQcoc_PvgeHB3e-JL8');
     const doc_menu = new GoogleSpreadsheet('1FLT1rvaHUhDxyDUQYN-sfCaYlxJ2MJq-t7UQob_kXtw');
@@ -101,7 +105,7 @@ async function accessSpreadsheet(){
 
 //rendering and set up all webpages below:
 
-app.get('/',(req,res) =>{
+app.get('/',(_req,res) =>{
     accessSpreadsheet();
     res.render('index',{
         row_announcement_1 : rows_announcement[0],
