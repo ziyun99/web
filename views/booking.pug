@@ -158,7 +158,7 @@ html(lang='en')
                     li
                       | For the booking of the Band Room, please check the room availability at 
                       a(href='https://tinyurl.com/KEbandroom1920')
-                        text https://tinyurl.com/KEbandroom1920                    
+                        text tinyurl.com/KEbandroom1920                    
                       | and email Sze Khen (
                       a(href='mailto:e0196786@u.nus.edu')
                         text e0196786@u.nus.edu
@@ -357,8 +357,13 @@ html(lang='en')
       document.getElementById(calName).style.display = "block";
       evt.currentTarget.className += " active";
 
-      document.getElementsByClassName("fc-listYear-button").click();
-      document.getElementsByClassName("fc-dayGridMonth-button").click();
+      //document.getElementsByClassName("fc-listYear-button").click();
+      //document.getElementsByClassName("fc-dayGridMonth-button").click();
+
+      //if (calName == "cal01") {
+      //open_cal01 ();
+      //}
+
       }
       // Get the element with id="defaultOpen" and click on it
       document.getElementById("defaultOpen").click();      

@@ -237,8 +237,8 @@ app.get('/booking-sent',(req,res) =>{
 app.post('/feedback-res-sent',upload.single('attachment'), function (req, res) {
     var msghtml='';
     msghtml +="<body>";
-    msghtml += "<h3>" + req.body.title  + "</h3>";
-    msghtml += "<p>" + req.body.message + "</p>";
+    msghtml += "<h3> Title: " + req.body.title  + "</h3>";
+    msghtml += "<p> Message: " + req.body.message + "</p>";
     if (req.body.name != ""){
         msghtml += "<br>";
         msghtml += "<p>Name: " + req.body.name + "</p>";
@@ -275,7 +275,7 @@ app.post('/feedback-res-sent',upload.single('attachment'), function (req, res) {
         mailOptions = {
             from: 'keviiwebinfo@gmail.com', // sender address
             to: 'keviiwebinfo@gmail.com', // list of receivers
-            subject: "Residential Life", // Subject line
+            subject: "Residential Life Feedback", // Subject line
             html: msghtml
         };
     } 
