@@ -193,8 +193,8 @@ app.get('/menu',(req,res) =>{
         special1 :special1,
         special2 :special2,
         special3 :special3,
-        fruitanddessert : rows_menu[i].fruitanddessert,
-        soup : rows_menu[i].soup,
+        fruitanddessert : fruitanddessert,
+        soup : soup,
         rows_menu:rows_menu
 
     });
