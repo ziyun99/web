@@ -7,7 +7,8 @@ html(lang='en')
   body.goto-here
     include includes/nav.pug
     // TITLE 
-    .hero-wrap.hero-bread(style="background-image: url('images/wallpaper_index.jpg');")
+    include includes/bg_img.pug
+    .hero-wrap.hero-bread(style="background-image: url("+wallpaper_index+")")
       .container
         .row.no-gutters.slider-text.align-items-center.justify-content-center
           .col-md-9.ftco-animate.text-center
@@ -90,8 +91,8 @@ html(lang='en')
                       | - RSVP -  
 
     //END of upcoming events
- 
-    section#section-counter.ftco-section.ftco-counter.img(style='background-image: url(images/kewallpaper.jpg);')
+
+    section#section-counter.ftco-section.ftco-counter.img(style="background-image: url("+kewallpaper+")")
       .container
         .row.justify-content-center.py-5
           .col-md-10
