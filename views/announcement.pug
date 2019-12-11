@@ -48,7 +48,7 @@ html(lang='en')
     include includes/nav.pug
 
     // TITLE 
-    .hero-wrap.hero-bread(style="background-image: url('images/bg_6.jpg');")
+    .hero-wrap.hero-bread(style="background-image: url('images/wallpaper_announcement.jpg');")
       .container
         .row.no-gutters.slider-text.align-items-center.justify-content-center
           .col-md-9.ftco-animate.text-center
@@ -86,8 +86,9 @@ html(lang='en')
                             h5 #{row_announcement.name}
                             h8(style="color:rgb(188, 188, 188);font-size:15px;") #{row_announcement.date} AT #{row_announcement.time}
                             p #{row_announcement.announcement}
-                            p
-
+                            a(href='#')
+                              span
+                                | - URL -
               // END comment-list
 
     // FOOTER

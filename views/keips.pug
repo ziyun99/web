@@ -8,7 +8,7 @@ html(lang='en')
   body.goto-here
     include includes/nav.pug
     // TITLE 
-    .hero-wrap.hero-bread(style="background-image: url('images/bg_6.jpg');")
+    .hero-wrap.hero-bread(style="background-image: url('images/wallpaper_keips.jpg');")
       .container
         .row.no-gutters.slider-text.align-items-center.justify-content-center
           .col-md-9.ftco-animate.text-center
@@ -25,12 +25,12 @@ html(lang='en')
           .col-lg-8.text.ftco-animate
             form.search-form(method = 'post', action = '/keips')
                 .form-group
-                    input.form-control(name = 'matnet', id = 'matnet', type='text',  placeholder='KEY IN YOUR MATNET (E.G. 4567X34567)')
+                    input.form-control(name = 'matnet', id = 'matnet', type='text',  placeholder='KEY IN YOUR MATNET (E.G. 567X4567)')
                     //input.icon(type='submit', style = 'margin-top: -21px; opacity: 1; height:40px; width:100px;margin-right: -5px;',  method = 'post', action = '/keips')
                     span.icon.ion-ios-search
-          span(style = 'color:white;font-size:17px; font-weight: 500;') Last 5 digits of Matric Number + Last 5 digits of NUSNET ID   
+          span(style = 'color:white;font-size:17px; font-weight: 500;') Last 4 digits of Matric Number + Last 4 digits of NUSNET ID   
           br 
-          span(style = 'color:white;font-size:17px; font-weight: 500;') &nbsp (e.g. A1234567X + E1234567 -> 4567X34567)
+          span(style = 'color:white;font-size:17px; font-weight: 500;') &nbsp (e.g. A1234567X + E1234567 -> 567X4567)
           
 
     // FOOTER

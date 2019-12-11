@@ -7,14 +7,14 @@ html(lang='en')
   body.goto-here
     include includes/nav.pug
     // TITLE 
-    .hero-wrap.hero-bread(style="background-image: url('images/kesunset.png');")
+    .hero-wrap.hero-bread(style="background-image: url('images/wallpaper_index.jpg');")
       .container
         .row.no-gutters.slider-text.align-items-center.justify-content-center
           .col-md-9.ftco-animate.text-center
             p.breadcrumbs
               span.mr-2
                 a(href='/',style='color:white;') Home
-            h12.mb-0.bread(,style='color:white;') An internal web system that makes a KEVIIAN's life simple. :)
+            h12.mb-0.bread(,style='color:white;') KEVII INTERNAL WEB
     // CONTENT
     section#home-section.hero
       .container
@@ -26,26 +26,34 @@ html(lang='en')
                 
                 li.comment
                   .vcard.bio
-                    img(src='images/ironman.png', alt='Image placeholder')
+                    img(src='images/msg.png', alt='Image placeholder')
                   .comment-body
                     h8 #{row_announcement_1.name}
                     .meta #{row_announcement_1.date} AT #{row_announcement_1.time}
                     p #{row_announcement_1.announcement}
-                li.comment
-                  .vcard.bio
-                    img(src='images/captainamerica.png', alt='Image placeholder')
-                  .comment-body
-                    h8 #{row_announcement_2.name}
-                    .meta #{row_announcement_2.date} AT #{row_announcement_2.time}
-                    p #{row_announcement_2.announcement}
-                li.comment
-                  .vcard.bio
-                    img(src='images/thor.png', alt='Image placeholder')
-                  .comment-body
-                    h8 #{row_announcement_3.name}
-                    .meta #{row_announcement_3.date} AT #{row_announcement_3.time}
-                    p #{row_announcement_3.announcement}
-
+                    a(href=`${row_announcement_1.url}`)
+                      span
+                        | - URL -  
+                  li.comment
+                    .vcard.bio
+                      img(src='images/msg.png', alt='Image placeholder')
+                    .comment-body
+                      h8 #{row_announcement_2.name}
+                      .meta #{row_announcement_2.date} AT #{row_announcement_2.time}
+                      p #{row_announcement_2.announcement}
+                      a(href=`${row_announcement_2.url}`)
+                        span
+                          | - URL -
+                  li.comment
+                    .vcard.bio
+                      img(src='images/msg.png', alt='Image placeholder')
+                    .comment-body
+                      h8 #{row_announcement_3.name}
+                      .meta #{row_announcement_3.date} AT #{row_announcement_3.time}
+                      p #{row_announcement_3.announcement}
+                      a(href=`${row_announcement_3.url}`)
+                        span
+                          | - URL -
                 .tag-widget.post-tag-container.mb-5.mt-5
                   .tagcloud
                     a.tag-cloud-link(href='/announcement') &nbsp;&nbsp;&nbsp;&nbsp;Read More&nbsp;&nbsp;&nbsp;&nbsp;
