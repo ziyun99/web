@@ -2,18 +2,24 @@ const express = require('express');
 const nodeMailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const multer = require('multer');
-// const poster = require('./poster.json');
-const app = express();
 
+// const poster = require('./poster.json');
+
+// testing login feature
+const sqlConnection = require('./config');
+const authenticateController = require('./controllers/authenticate-controller');
+const registerController = require('./controllers/register-controller');
+
+// access google spreadsheet
 const GoogleSpreadsheet = require('google-spreadsheet');
 const async = require('async');
 const { promisify } = require('util');
 
+
 const port = process.env.PORT || 8080
 
-
+const app = express();
 app.set('view engine','pug');
-
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -94,13 +100,53 @@ async function accessSpreadsheet(){
     rows_eventposter = await promisify(sheet_eventposter.getRows)();
     rows_menu = await promisify(sheet_menu.getRows)();
     rows_keips = await promisify(sheet_keips.getRows)();
-  
 
     // rowss.forEach(row => {
     //   printSheet(row);
     // })
 }
 
+
+// testing register features
+app.get('/register',(req,res) =>{
+	res.render('register');
+});
+
+app.post('/controllers/register-controller', registerController.register);
+
+// testing login features
+var isLogin = null
+
+app.get('/login',(req,res) =>{
+	res.render('login');
+});
+
+app.post('/controllers/authenticate-controller', function (req, res) {
+    authenticateController.authenticate(req, res);
+    isLogin = true;    
+});
+
+function checkAuth(req, res, next) {
+    if (!isLogin) {
+        res.redirect('/login');
+        // res.send('You are not authorized to view this page');
+    } else {
+        next();
+    }
+}
+
+app.get('/my_secret_page', checkAuth, function (req, res) {
+    res.send('if you are viewing this page it means you are logged in');
+});
+
+app.get('/logout', function (req, res) {
+    isLogin = null;
+    res.redirect('/login');
+});   
+
+
+// any app.get() below this statement will need to pass checkAuth
+app.use('/', checkAuth)
 
 
 //rendering and set up all webpages below:
@@ -114,8 +160,6 @@ app.get('/',(_req,res) =>{
         
         rows_eventposter:rows_eventposter,
       });
-
-
 });
 
 app.get('/feedback-res',(req,res) =>{
@@ -137,7 +181,6 @@ app.get('/announcement',(req,res) =>{
 
     });
 });
-
 
 app.get('/menu',(req,res) =>{
     accessSpreadsheet();
