@@ -65,6 +65,21 @@ If you want to change a new set of menu (for the new semester):
 
 == Booking System
 
+Venues that are available for booking are:
+
+. Comm Hall 
+. Dining Hall
+. Heritage Room
+. Multi Purpose Court
+. Squash Court
+. Tennis Court
+. KEWOC Room
+. Marketing Room
+. Dance Studio
+. Recreation Room
+. BBQ Pit
+. Band Room
+
 Before booking a venue, resident will have to check the calendar on the *KIWI* `Booking System Page` for availability of the venue. This `website calendar` is sync with the `google calendar` of the same google account. 
 
 To book a venue, resident will have to submit the `Facilities Reservation Form` 3 days in advance. Upon submission, the booking will be recorded in the `Booking Submission` google sheet:
@@ -86,8 +101,15 @@ As an admin, you can:
 
 * Access the `google calendar` to add/change the bookings, any changes will be updated on the `webiste calendar` automatically
 
-* Access the *Booking Submission* google sheet to view the list of bookings and get information of the bookings including: 
+* Access the *Booking Submission* google sheet to view the list of bookings and obtain details of the bookings including: 
 
  cca_name | email | purpose | date | starttime | endtime | venue | status
 
 
+|===
+This web system is still under development, if you think that there's any place for improvement for better administrative job, please let us know. 
+Hope you enjoy! +
+
+
+_KE Web, Dec 2019_
+|===
