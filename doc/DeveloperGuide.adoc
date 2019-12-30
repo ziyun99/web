@@ -1,17 +1,38 @@
 # KIWI Developer Guide
+:site-section: DeveloperGuide
+:toc:
+:toc-title:
+:toc-placement: preamble
+:sectnums:
+:imagesDir: ./images
+:stylesDir: stylesheets
+:xrefstyle: full
+:repoURL: 
 
-Hi, welcome to *KIWI*! 
+By: `KE Web`   Since: `Jul 2019`
 
-KIWI is a website serves as King Edward VII Hall (KEVII) internal hall platform. KIWI is created to provide a centralised information for hall residents.
+== Introduction
+
+Hi, welcome to *KIWI Developer Guide*! 
+
+**KIWI** is a website serves as King Edward VII Hall (KEVII) internal platform. **KIWI** is created to provide a centralised information platform hall residents.
 
 .KIWI Home Page
-image::./images/home_page.png[KIWI Home Page, 800]
+image::home_page.png[KIWI Home Page, 800]
 
-Feel free to approach the developer for any feedback or questions!
+This developer guide provides documentation on the implementation of the various features of KIWI. It will help you to get started to modify and build upon it.
 
-|===
-This web system is still under development, if you think that there's any place for improvement for better a service, please let us know. 
-Hope you enjoy! 
+Feel free to approach us for any feedback or questions!
 
-_KE Web, Dec 2019_
-|===
+== Setting Up
+
+* Prerequisites
+. https://nodejs.org/en/[Nodejs]
+. https://www.npmjs.com/get-npm[npm]
+. https://git-scm.com/downloads[git]
+
+* Getting started
+. Clone this https://github.com/ziyun99/web[repo]
+. `npm install`
+. `node server.js`
+. Open browser, enter `localhost:8080`

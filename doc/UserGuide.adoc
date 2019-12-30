@@ -1,13 +1,23 @@
 # KIWI User Guide
 
-Hi, welcome to *KIWI*! 
+Hi, welcome to *KIWI User Guide*! 
 
-KIWI is a website serves as King Edward VII Hall (KEVII) internal hall platform. KIWI is created to provide a centralised information for hall residents.
+**KIWI** is a website serves as King Edward VII Hall (KEVII) internal platform. **KIWI** is created to provide a centralised information platform hall residents.
 
 .KIWI Home Page
 image::./images/home_page.png[KIWI Home Page, 800]
 
 Feel free to approach the developer for any feedback or questions!
+
+**Main features**
+
+* Latest announcements
+* Upcoming events
+* Feedback portal (residential life & facilities feedback)
+* Venue booking system
+* Menu of the day
+* KEIPS (KEVII Internal Point System)
+* More...
 
 
 |===
