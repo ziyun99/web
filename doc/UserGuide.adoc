@@ -9,3 +9,10 @@ image::./images/home_page.png[KIWI Home Page, 800]
 
 Feel free to approach the developer for any feedback or questions!
 
+
+|===
+This web system is still under development, if you think that there's any place for improvement for better a service, please let us know. 
+Hope you enjoy! 
+
+_KE Web, Dec 2019_
+|===
