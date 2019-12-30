@@ -1,13 +1,12 @@
 = KIWI Management Guide
-:site-section: KIWI Management Guide
-:relfileprefix: doc/
-:imagesDir: images
-:stylesDir: stylesheets
+
 
 Welcome to *KIWI management guide*! This documentation explains how to update and maintain KIWI as an `admin`.
 
 Feel free to approach the developer for any feedback or questions!
 
+.KIWI Home Page
+image::./images/home_page.png[KIWI Home Page, 800]
 
 == Google account
 

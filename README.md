@@ -16,5 +16,6 @@ Feel free to approach the developer for any feedback or questions!
 **Site Map**
 
 * [Developer Guide](https://github.com/ziyun99/web/blob/master/doc/DeveloperGuide.adoc)
+* [User Guide](https://github.com/ziyun99/web/blob/master/doc/UserGuide.adoc)
 * [Management Guide](https://github.com/ziyun99/web/blob/master/doc/ManagementGuide.adoc)
 * [About Us](https://github.com/ziyun99/web/blob/master/doc/AboutUs.adoc)

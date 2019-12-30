@@ -1,4 +1,4 @@
-# KIWI Developer Guide
+# KIWI User Guide
 
 Hi, welcome to *KIWI*! 
 
