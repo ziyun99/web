@@ -13,9 +13,15 @@ Feel free to approach the developer for any feedback or questions!
 
 We use google drive to store some of our administrative data that are non-private. If you are the admin, please contact the developer to gain access to the google account. We also uses other google services including `gmail`, `google drive`, `google calendar`.
 
-In the google drive, there is a folder `KIWI Management Interface`. Listed below are a few excel files found in the folder.
+In the google drive, there is a folder `KIWI Management Interface`. Listed below are the excel files found in the folder:
+
+. <<Announcement>>
+. <<Event_Poster>>
+. <<Menu>>
+. <<Booking_Submission>>
 
 
+[[Announcement]]
 == Announcement
 
 *KIWI* `home page` displays the three latest announcements, whereas `announcement page` shows all the announcements.
@@ -28,7 +34,9 @@ If you want to make a new announcement:
 . Refresh both the google sheet and the website
 . Your announcement is published on the `home page` and `announcement page`!
 
-== Event poster
+
+[[Event_Poster]]
+== Event Poster
 
 *KIWI* `home page` displays all the event posters in the `Event Poster` google sheet.
 
@@ -45,7 +53,8 @@ If you want to add a new event poster:
 . Your event poster is published on the `home page`!
 
 
-== Menu of the day
+[[Menu]]
+== Menu 
 
 *KIWI* `home page` displays the menu of the day and updates automatically every day. The `Menu` google sheet serves as the menu data source for webpage and also the https://t.me/HungryKEBot[HungryKE] telegram bot. 
 
@@ -63,6 +72,7 @@ If you want to change a new set of menu (for the new semester):
 . Update the `Menu` google sheet with the latest menu
 
 
+[[Booking_Submission]]
 == Booking System
 
 Venues that are available for booking are:
@@ -107,9 +117,8 @@ As an admin, you can:
 
 
 |===
-This web system is still under development, if you think that there's any place for improvement for better administrative job, please let us know. 
-Hope you enjoy! +
-
+This web system is still under development, if you think that there's any place for improvement for better a administrative job, please let us know. 
+Hope you enjoy! 
 
 _KE Web, Dec 2019_
 |===
