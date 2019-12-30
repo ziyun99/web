@@ -36,3 +36,10 @@ Feel free to approach us for any feedback or questions!
 . `npm install`
 . `node server.js`
 . Open browser, enter `localhost:8080`
+
+== Implementation
+
+
+
+== Deploy the web
+. The web is now deployed on https://kiwi7.herokuapp.com/[heroku] and http://ec2-52-221-253-86.ap-southeast-1.compute.amazonaws.com:8080/[aws].
