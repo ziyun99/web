@@ -1,0 +1,93 @@
+= KIWI Management Guide
+:site-section: KIWI Management Guide
+:relfileprefix: doc/
+:imagesDir: images
+:stylesDir: stylesheets
+
+Welcome to *KIWI management guide*! This documentation explains how to update and maintain KIWI as an `admin`.
+
+Feel free to approach the developer for any feedback or questions!
+
+
+== Google account
+
+We use google drive to store some of our administrative data that are non-private. If you are the admin, please contact the developer to gain access to the google account. We also uses other google services including `gmail`, `google drive`, `google calendar`.
+
+In the google drive, there is a folder `KIWI Management Interface`. Listed below are a few excel files found in the folder.
+
+
+== Announcement
+
+*KIWI* `home page` displays the three latest announcements, whereas `announcement page` shows all the announcements.
+
+If you want to make a new announcement:
+
+. Go to the google sheet named *Announcement*
+. Insert your latest announcement in the *first row* (on top of all announcements)
+. Enter the `Date`, `Time`, `Name`, `Announcement` and `URL` of the announcement
+. Refresh both the google sheet and the website
+. Your announcement is published on the `home page` and `announcement page`!
+
+== Event poster
+
+*KIWI* `home page` displays all the event posters in the `Event Poster` google sheet.
+
+If you want to add a new event poster:
+
+. Go to the google sheet named *Event Poster*
+. Insert a new row and enter the `Date`，`Time`, `Title`, `Image` and `RSVP (url)` of the event
+. Follow the instructions below to get the link to the poster image:
+.. Uplaod the poster image to the `Images` folder under the `KIWI Management Interface` folder
+.. Right click on the image and select `Get shareable link`
+.. Copy the link and paste into the google sheet
+.. In the link, change the `view?` to `uc?` to make the link compatible to the website
+. Refresh both the google sheet and the website
+. Your event poster is published on the `home page`!
+
+
+== Menu of the day
+
+*KIWI* `home page` displays the menu of the day and updates automatically every day. The `Menu` google sheet serves as the menu data source for webpage and also the https://t.me/HungryKEBot[HungryKE] telegram bot. 
+
+If you want to update the menu:
+
+. Go to the google sheet named *Menu* 
+. Edit the file accordingly
+
+If you want to change a new set of menu (for the new semester):
+
+. Make sure the excel sheet you follows follow the bellow title format (*important*): 
+
+ Date | Month | Breakfast1 | Breakfast2 | Breakfast3 | Breakfast4 | Breakfast5 | Meat1 | Meat2 | Meat3 | Vege1 | Vege2 | Vege3 | Side1 | Side2 | Side3 | Side4 | Special1 | Special2 | Special3 | FruitandDessert | Soup
+
+. Update the `Menu` google sheet with the latest menu
+
+
+== Booking System
+
+Before booking a venue, resident will have to check the calendar on the *KIWI* `Booking System Page` for availability of the venue. This `website calendar` is sync with the `google calendar` of the same google account. 
+
+To book a venue, resident will have to submit the `Facilities Reservation Form` 3 days in advance. Upon submission, the booking will be recorded in the `Booking Submission` google sheet:
+
+.  If the venue is available:
+
+* an email will be sent from the gmail account to the applicant confirming his/her booking
+* The status in the excel sheet will be set as `Sent: Approve`
+* The booking will be added to the google calendar
+* The webpage calendar will sync with the google calendar
+
+.  If the venue is unavailable, there is a conflict in the timing:
+
+* an email will be sent from the gmail account to the applicant rejecting his/her booking
+* The status in the excel sheet will be set as `Sent: Conflict`
+* Google calendar and webpage calendar remain unchanged
+
+As an admin, you can:
+
+* Access the `google calendar` to add/change the bookings, any changes will be updated on the `webiste calendar` automatically
+
+* Access the *Booking Submission* google sheet to view the list of bookings and get information of the bookings including: 
+
+ cca_name | email | purpose | date | starttime | endtime | venue | status
+
+
