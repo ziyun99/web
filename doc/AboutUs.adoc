@@ -1,0 +1,7 @@
+# About Us
+
+Hi, welcome to *KIWI*! 
+
+KIWI is a website serves as King Edward VII Hall (KEVII) internal hall platform. KIWI is created to provide a centralised information for hall residents.
+
+Feel free to approach the developer for any feedback or questions!
