@@ -233,6 +233,14 @@ app.post('/keips', function (req, res) {
 
 });
 
+app.get('/cca',(req,res) =>{
+    res.render('cca');
+});
+
+app.get('/cart',(req,res) =>{
+    res.render('cart');
+});
+
 app.get('/booking-sent',(req,res) =>{
     res.render('booking-sent');
 });

@@ -1,0 +1,109 @@
+doctype html
+html(lang='en')
+  head
+    title Cart
+    include includes/css_link.pug
+  body.goto-here
+    include includes/nav.pug
+    // TITLE 
+    include includes/bg_img.pug
+    .hero-wrap.hero-bread(style="background-image: url("+bg2+")")  
+      .container
+        .row.no-gutters.slider-text.align-items-center.justify-content-center
+          .col-md-9.ftco-animate.text-center
+            p.breadcrumbs
+              span.mr-2
+                a(href='index.html') Home
+              span Cart
+            h1.mb-0.bread My Cart
+    section.ftco-section.ftco-cart
+      .container
+        .row
+          .col-md-12.ftco-animate
+            .cart-list
+              table.table
+                thead.thead-primary
+                  tr.text-center
+                    th  
+                    th  
+                    th Product
+                    th Price
+                    th Quantity
+                    th Total
+                tbody
+                  tr.text-center
+                    td.product-remove
+                      a(href='#')
+                        span.ion-ios-close
+                    td.image-prod
+                      .img(style='background-image:url(images/template_img/product-3.jpg);')
+                    td.product-name
+                      h3 Young Woman Wearing Dress
+                      p Far far away, behind the word mountains, far from the countries
+                    td.price $4.90
+                    td.quantity
+                      .input-group.mb-3
+                        input.quantity.form-control.input-number(type='text', name='quantity', value='1', min='1', max='100')
+                    td.total $4.90
+                  // END TR
+                  tr.text-center
+                    td.product-remove
+                      a(href='#')
+                        span.ion-ios-close
+                    td.image-prod
+                      .img(style='background-image:url(images/template_img/product-4.jpg);')
+                    td.product-name
+                      h3 Young Woman Wearing Dress
+                      p Far far away, behind the word mountains, far from the countries
+                    td.price $15.70
+                    td.quantity
+                      .input-group.mb-3
+                        input.quantity.form-control.input-number(type='text', name='quantity', value='1', min='1', max='100')
+                    td.total $15.70
+                  // END TR
+        .row.justify-content-center
+          .col.col-lg-5.col-md-6.mt-5.cart-wrap.ftco-animate
+            .cart-total.mb-3
+              h3 Cart Totals
+              p.d-flex
+                span Subtotal
+                span $20.60
+              p.d-flex
+                span Delivery
+                span $0.00
+              p.d-flex
+                span Discount
+                span $3.00
+              hr
+              p.d-flex.total-price
+                span Total
+                span $17.60
+            p.text-center
+              a.btn.btn-primary.py-3.px-4(href='checkout.html') Proceed to Checkout
+
+    // FOOTER
+    include includes/footer.pug
+              script.
+                $(document).ready(function(){
+                var quantitiy=0;
+                $('.quantity-right-plus').click(function(e){
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+                // If is not undefined
+                $('#quantity').val(quantity + 1);
+                // Increment
+                });
+                $('.quantity-left-minus').click(function(e){
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+                // If is not undefined
+                // Increment
+                if(quantity>0){
+                $('#quantity').val(quantity - 1);
+                }
+                });
+                });
