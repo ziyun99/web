@@ -88,24 +88,30 @@ html(lang='en')
                         th(style = "color:white;") CCA 
                         th(style = "color:white;") Category
                         th(style = "color:white;") Attendance 
+                        th(style = "color:white;") Vacation Attendance 
+                        th(style = "color:white;") IHG
                         th(style = "color:white;") Performance
                         th(style = "color:white;") Outstanding
                         th(style = "color:white;") Total
                 tbody
                   each cca in row_keips.top4cca.split("|")
                     tr.text-center
-                      td.product-remove(width = "32%")
+                      td.product-remove(width = "30%")
                         span #{cca.split(".")[0]}
-                      td.product-remove(width = "20%")
+                      td.product-remove(width = "10%")
                         span #{cca.split(".")[1]}
-                      td.product-remove(width = "12%")
+                      td.product-remove(width = "10%")
                         span #{cca.split(".")[2]}
-                      td.product-remove(width = "12%")
+                      td.product-remove(width = "10%")
                         span #{cca.split(".")[3]}
-                      td.product-remove(width = "12%")
+                      td.product-remove(width = "10%")
                         span #{cca.split(".")[4]}
-                      td.product-remove(width = "12%")
+                      td.product-remove(width = "10%")
                         span #{cca.split(".")[5]}
+                      td.product-remove(width = "10%")
+                        span #{cca.split(".")[6]}
+                      td.product-remove(width = "10%")
+                        span #{cca.split(".")[7]}
                   // END TR
 
       //table for all cca
@@ -119,30 +125,36 @@ html(lang='en')
 
         .row
           .col-md-12.ftco-animate
-               table(width = '100%', frame ='box')
+              table(width = '100%', frame ='box')
                 font(size = '50', color = 'white')
                     tr.text-center(bgcolor = '#800000')
                         th(style = "color:white;") CCA 
                         th(style = "color:white;") Category
                         th(style = "color:white;") Attendance 
+                        th(style = "color:white;") Vacation Attendance 
+                        th(style = "color:white;") IHG
                         th(style = "color:white;") Performance
                         th(style = "color:white;") Outstanding
                         th(style = "color:white;") Total
                 tbody
                   each cca in row_keips.allcca.split("|")
                     tr.text-center
-                      td.product-remove(width = "32%")
+                      td.product-remove(width = "30%")
                         span #{cca.split(".")[0]}
-                      td.product-remove(width = "20%")
+                      td.product-remove(width = "10%")
                         span #{cca.split(".")[1]}
-                      td.product-remove(width = "12%")
+                      td.product-remove(width = "10%")
                         span #{cca.split(".")[2]}
-                      td.product-remove(width = "12%")
+                      td.product-remove(width = "10%")
                         span #{cca.split(".")[3]}
-                      td.product-remove(width = "12%")
+                      td.product-remove(width = "10%")
                         span #{cca.split(".")[4]}
-                      td.product-remove(width = "12%")
+                      td.product-remove(width = "10%")
                         span #{cca.split(".")[5]}
+                      td.product-remove(width = "10%")
+                        span #{cca.split(".")[6]}
+                      td.product-remove(width = "10%")
+                        span #{cca.split(".")[7]}
                   // END TR
 
       //table for bonus
@@ -152,7 +164,7 @@ html(lang='en')
       .container
         .row 
           .col-md-12.ftco-animate
-            h5 All CCAs
+            h5 Bonus Points
 
         .row
           .col-md-12.ftco-animate
