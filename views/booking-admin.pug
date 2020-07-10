@@ -16,6 +16,7 @@ html(lang='en')
               span.mr-2
                 a(href='/',style='color:white;') Home
             h12.mb-0.bread(,style='color:black;') ADMIN (BOOKINGS) 
+
     // CONTENT
     section.ftco-section.bg-light
       .container
@@ -24,30 +25,90 @@ html(lang='en')
             h2.mb-4 Bookings Submission
             p
               | Work In Progress (Dummy Content Below)
+
+    // Filter bookings
+    section.ftco-section.contact-section.bg-light
+      .container
+        .row.d-flex.justify-content-center.mb-5.contact-info(style='margin-top: -300px;')
+          .col-lg-8.text.ftco-animate
+            form.search-form(onchange='myFilter()',target= 'dummyframe')
+                .form-group
+                    span.icon.ion-ios-search(onclick='myFilter()',target= 'dummyframe')
+                    input.form-control(name='mySearch', id='mySearch', type='text', placeholder='Filter: type a keyword and hit enter')
+      .container
+        .row.d-flex.justify-content-center.mb-5.contact-info(style='margin-top: 120px;')
+          .col.d-flex.text.ftco-animate
+            .info.bg-white.p-4
+                p(id='searchresult')
+
+      // List bookings
       .container
         .row
-          each row_eventposter in rows_eventposter
-            .col-sm.col-md-1.col-lg.ftco-animate
-              .product
-                //a.img-prod
-                //a.icon.popup-vimeo.d-flex.justify-content-center.align-items-center
-                a
-                  img.img-fluid(src=`${row_eventposter.image}`, alt='Image placeholder')
-                  .overlay
-                .text.py-3.px-3
-                  .d-flex
-                    .pricing
-                      p.price
-                        span.price-sale #{row_eventposter.title}
-                      p
-
-                  h3 #{row_eventposter.date}
-                  h3 #{row_eventposter.time}
-                  a.buy-now.text-center.py-2.mr-1(href=`${row_eventposter.rsvp}`)
-                    span
-                      | - RSVP -  
-
+          .col-md-12.ftco-animate
+            table.table
+                thead.thead-primary
+                  tr.text-center
+                    th Submitted At
+                    th CCA
+                    th Purpose
+                    th Venue
+                    th Time
+                    th Availability
+                    th Status
+                tbody
+                  each booking in rows_bookings
+                    tr.text-center
+                      td
+                        span #{booking.timestamp}
+                      td
+                        span #{booking.cca}
+                      td
+                        span #{booking.room}
+                      td
+                        span #{booking.venue}
+                      td
+                        span #{booking.starttime} ~ #{booking.endtime}  
+                      td
+                        span #{booking.zone}
+                      td
+                        span #{booking.status}
+        
     //END of upcoming events
 
     // FOOTER
     include includes/footer.pug
+
+iframe#dummyframe(width='0', height='0', border='0', name='dummyframe')
+
+    // Script for bookings filtering
+    script.
+        function myFilter(){
+            var input, filter;
+            input = document.getElementById("mySearch");
+            filter = input.value.toUpperCase();
+
+            var filtered_bookings;
+            if (filter.length == 0 || filter == "ALL"){
+                document.getElementById("searchresult").innerHTML = "<h5> Search result for '" + "ALL" +"' : </h5>";
+                filtered_bookings = rows_bookings;
+                return false;
+            }
+
+            var messagehtml ="<h5> Search result for '" + filter +"' : </h5>" ;
+            document.getElementById("searchresult").innerHTML = messagehtml;
+
+            var i, j, row_booking, row_booking_txt;
+            for (i = 0; i < rows_bookings.length ; i++) {
+                row_booking = rows_bookings[i];
+                row_booking_txt = "";
+                for (j = 0; j < row_booking.length; j++) {
+                    row_booking_txt += row_booking[j] + " ";
+                }
+                if (row_booking_txt) {
+                    if (row_booking_txt.toUpperCase().indexOf(filter) > -1) {
+                        filtered_bookings +=  row_booking;
+                    }
+                }
+            }
+            return false;
+        };

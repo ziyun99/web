@@ -92,6 +92,9 @@ async function accessSpreadsheet(){
     // console.log('Loaded doc: '+info_keips.title+' by '+info_keips.author.email);
     // console.log(`Title: ${sheet_keips.title} , Rows: ${sheet_keips.rowCount} , Columns: ${sheet_keips.colCount}`);
 
+    // console.log('Loaded doc: '+info_bookings.title+' by '+info_bookings.author.email);
+    // console.log(`Title: ${sheet_bookings.title} , Rows: ${sheet_bookings.rowCount} , Columns: ${sheet_bookings.colCount}`);
+
     console.log("..........................");
   
     rows_announcement = await promisify(sheet_announcement.getRows)();
@@ -136,7 +139,6 @@ app.get('/announcement',(req,res) =>{
     accessSpreadsheet();
     res.render('announcement',{
         rows_announcement:rows_announcement
-
     });
 });
 
@@ -304,16 +306,23 @@ app.get('/booking-admin-login',(req,res) =>{
     res.render('booking-admin-login');
 });
 
-app.post('/booking-admin-login', function (req, res) {
+app.get('/booking-admin',(req,res) =>{
     accessSpreadsheet();
+    res.render('booking-admin',{
+        rows_eventposter:rows_eventposter,
+        rows_bookings:rows_bookings
+    });
+});
+
+app.post('/booking-admin-login', function (req, res) {
     var password = req.body.password;
     var match = false;var match = false;
     if(password == "secretpassword"){
         match = true;
     }
     if(match){
+        accessSpreadsheet();
         res.render('booking-admin',{
-            rows_eventposter:rows_eventposter,
             rows_bookings:rows_bookings
         });
     }
