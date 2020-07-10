@@ -58,9 +58,11 @@ nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-nav
           .dropdown-menu(aria-labelledby='dropdown04')
             a.dropdown-item(href='/feedback-res') Residential Life
             a.dropdown-item(href='https://uhms.nus.edu.sg/students/Default.aspx?Params=L9ezxPcQnQsDuaBX%2bLFbaVCjyFjDa5W4') Facilities
-
-        li.nav-item
-          a.nav-link(href='/booking') Booking System
+        li.nav-item.dropdown
+          a#dropdown04.nav-link.dropdown-toggle(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Bookings
+          .dropdown-menu(aria-labelledby='dropdown04')
+            a.dropdown-item(href='/booking') Make a Booking
+            a.dropdown-item(href='/booking-admin-login') Admin
         li.nav-item
           a.nav-link(href='/announcement') Announcement
         li.nav-item

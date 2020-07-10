@@ -240,9 +240,6 @@ html(lang='en')
           h2 Event Details
             hr(style='border: 1px solid #f1f1f1; margin-bottom: 25px;')
           h4
-            //| Venue: 
-            //span#ev_venue  
-            //br
             | Venue       : 
             span#ev_venue   
             br          
@@ -269,14 +266,36 @@ html(lang='en')
               p(style='color:Tomato;') Please ensure your booking is made 3 days in advance.  
 
             .row.align-items-end
-              .col-md-12
+              .col-md-4
                 .form-group
-                  label(for='name') Name of CCA
+                  label(for='name') Name
+                  input.form-control(type='text', name='name', required='required')
+              .col-md-4
+                .form-group
+                  label(for='room_number') Room No.
+                  input.form-control(type='text', name='room_number', required='required')
+              .col-md-4
+                .form-group
+                  label(for='zone') Zone
+                  select.form-control(type='text', name='zone', required='required')
+                    option(value='A') A
+                    option(value='B') B
+                    option(value='C') C
+                    option(value='D') D
+                    option(value='E') E
+          
+              .col-md-4
+                .form-group
+                  label(for='cca_name') Name of CCA
                   input.form-control(type='text', name='cca_name', required='required')
-              .col-md-12
+              .col-md-4
                 .form-group
-                  label(for='purpose') Purpose
-                  input.form-control(type='text', name='purpose', required='required')
+                  label(for='position') Position
+                  input.form-control(type='text', name='position', required='required')
+              .col-md-4
+                .form-group
+                  label(for='email') Email
+                  input.form-control(type='email', name='email', required='required')
               .col-md-6
                 .form-group
                   label(for='venue') Venue
@@ -296,8 +315,8 @@ html(lang='en')
                     //option(value='Incub Room 13') Incub Room 13                    
               .col-md-6
                 .form-group
-                  label(for='email') Email
-                  input.form-control(type='email', name='email', required='required')
+                  label(for='purpose') Purpose
+                  input.form-control(type='text', name='purpose', required='required')
                   //input#datepicker.form-control(type='text', name='date', required='required')
               .col-md-4
                 .form-group

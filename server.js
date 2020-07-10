@@ -60,21 +60,25 @@ async function accessSpreadsheet(){
     const doc_eventposter = new GoogleSpreadsheet('15WuaRdyth4nJZTHV0isaG_xJUmQcoc_PvgeHB3e-JL8');
     const doc_menu = new GoogleSpreadsheet('1FLT1rvaHUhDxyDUQYN-sfCaYlxJ2MJq-t7UQob_kXtw');
     const doc_keips = new GoogleSpreadsheet('1e7QyXiIseUD9dwNul5rOQHCmHZm3xQlI9364FQ9-A50');
+    const doc_bookings = new GoogleSpreadsheet('1q3kn5GenBH_DeA2dcr7xsrZT1_2CRuvLFvH97deM1rQ');
 
     await promisify(doc_announcement.useServiceAccountAuth)(creds);
     await promisify(doc_eventposter.useServiceAccountAuth)(creds);
     await promisify(doc_menu.useServiceAccountAuth)(creds);
     await promisify(doc_keips.useServiceAccountAuth)(creds);
+    await promisify(doc_bookings.useServiceAccountAuth)(creds);
 
     const info_announcement = await promisify(doc_announcement.getInfo)();
     const info_eventposter = await promisify(doc_eventposter.getInfo)();
     const info_menu = await promisify(doc_menu.getInfo)();
     const info_keips = await promisify(doc_keips.getInfo)();
+    const info_bookings = await promisify(doc_bookings.getInfo)();
 
     const sheet_announcement = info_announcement.worksheets[0];
     const sheet_eventposter = info_eventposter.worksheets[0];
     const sheet_menu = info_menu.worksheets[0];
     const sheet_keips = info_keips.worksheets[0];
+    const sheet_bookings = info_bookings.worksheets[0];
 
     // console.log('Loaded doc: '+info_announcement.title+' by '+info_announcement.author.email);
     // console.log(`Title: ${sheet_announcement.title} , Rows: ${sheet_announcement.rowCount} , Columns: ${sheet_announcement.colCount}`);
@@ -94,7 +98,7 @@ async function accessSpreadsheet(){
     rows_eventposter = await promisify(sheet_eventposter.getRows)();
     rows_menu = await promisify(sheet_menu.getRows)();
     rows_keips = await promisify(sheet_keips.getRows)();
-  
+    rows_bookings = await promisify(sheet_bookings.getRows)();
 
     // rowss.forEach(row => {
     //   printSheet(row);
@@ -114,8 +118,6 @@ app.get('/',(_req,res) =>{
         
         rows_eventposter:rows_eventposter,
       });
-
-
 });
 
 app.get('/feedback-res',(req,res) =>{
@@ -221,7 +223,6 @@ app.post('/keips', function (req, res) {
             match = true;
         }
     }
-
     if(match){
         res.render('keips-search',{
             row_keips:row_keips
@@ -230,7 +231,6 @@ app.post('/keips', function (req, res) {
     else{
         res.render('keips');
     }
-
 });
 
 app.get('/booking-sent',(req,res) =>{
@@ -298,6 +298,29 @@ app.post('/bookingform-sent',upload.single('attachment'), function (req, res) {
     res.render('booking-sent');
 });
 
+
+app.get('/booking-admin-login',(req,res) =>{
+    accessSpreadsheet();
+    res.render('booking-admin-login');
+});
+
+app.post('/booking-admin-login', function (req, res) {
+    accessSpreadsheet();
+    var password = req.body.password;
+    var match = false;var match = false;
+    if(password == "secretpassword"){
+        match = true;
+    }
+    if(match){
+        res.render('booking-admin',{
+            rows_eventposter:rows_eventposter,
+            rows_bookings:rows_bookings
+        });
+    }
+    else{
+        res.render('booking-admin-login');
+    }
+});
 
 const server = app.listen(port, () => {
     accessSpreadsheet();

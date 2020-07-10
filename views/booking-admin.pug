@@ -1,0 +1,53 @@
+doctype html
+html(lang='en')
+  head
+    title KIWI Home
+    include includes/css_link.pug
+
+  body.goto-here
+    include includes/nav.pug
+    // TITLE 
+    include includes/bg_img.pug
+    .hero-wrap.hero-bread(style="background-image: url("+wallpaper_admin+")")
+      .container
+        .row.no-gutters.slider-text.align-items-center.justify-content-center
+          .col-md-9.ftco-animate.text-center
+            p.breadcrumbs
+              span.mr-2
+                a(href='/',style='color:white;') Home
+            h12.mb-0.bread(,style='color:black;') ADMIN (BOOKINGS) 
+    // CONTENT
+    section.ftco-section.bg-light
+      .container
+        .row.justify-content-center.mb-3.pb-3
+          .col-md-12.heading-section.text-center.ftco-animate
+            h2.mb-4 Bookings Submission
+            p
+              | Work In Progress (Dummy Content Below)
+      .container
+        .row
+          each row_eventposter in rows_eventposter
+            .col-sm.col-md-1.col-lg.ftco-animate
+              .product
+                //a.img-prod
+                //a.icon.popup-vimeo.d-flex.justify-content-center.align-items-center
+                a
+                  img.img-fluid(src=`${row_eventposter.image}`, alt='Image placeholder')
+                  .overlay
+                .text.py-3.px-3
+                  .d-flex
+                    .pricing
+                      p.price
+                        span.price-sale #{row_eventposter.title}
+                      p
+
+                  h3 #{row_eventposter.date}
+                  h3 #{row_eventposter.time}
+                  a.buy-now.text-center.py-2.mr-1(href=`${row_eventposter.rsvp}`)
+                    span
+                      | - RSVP -  
+
+    //END of upcoming events
+
+    // FOOTER
+    include includes/footer.pug
