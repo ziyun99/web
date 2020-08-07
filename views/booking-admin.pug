@@ -71,15 +71,25 @@ html(lang='en')
                       td
                         span #{booking.zone}
                       td
-                        span #{booking.status}
+                        p(onclick='myFunction(#{booking.status})')
+                         a.btn.btn-white.px-4.py-3(id="status") #{booking.status}
         
     //END of upcoming events
 
     // FOOTER
     include includes/footer.pug
 
-iframe#dummyframe(width='0', height='0', border='0', name='dummyframe')
 
+    script.
+      function myFunction(status) {
+        console.log(status);
+        if (status.indexOf("Approve") > -1) {
+          document.getElementById("status").innerHTML = "Good!";
+        } else {
+          document.getElementById("status").innerHTML = "Conflict!";
+        }
+      }
+      
     // Script for bookings filtering
     script.
         function myFilter(){
@@ -112,3 +122,5 @@ iframe#dummyframe(width='0', height='0', border='0', name='dummyframe')
             }
             return false;
         };
+
+iframe#dummyframe(width='0', height='0', border='0', name='dummyframe')
