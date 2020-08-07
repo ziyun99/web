@@ -266,15 +266,15 @@ html(lang='en')
               p(style='color:Tomato;') Please ensure your booking is made 3 days in advance.  
 
             .row.align-items-end
-              .col-md-4
+              .col-md-3
                 .form-group
                   label(for='name') Name
                   input.form-control(type='text', name='name', required='required')
-              .col-md-4
+              .col-md-3
                 .form-group
                   label(for='room') Room No.
                   input.form-control(type='text', name='room', required='required')
-              .col-md-4
+              .col-md-3
                 .form-group
                   label(for='zone') Zone
                   select.form-control(type='text', name='zone', required='required')
@@ -283,7 +283,11 @@ html(lang='en')
                     option(value='C') C
                     option(value='D') D
                     option(value='E') E
-          
+              .col-md-3
+                .form-group
+                  label(for='pax') Pax
+                  input.form-control(type='number', name='pax', required='required', min='1', max='15')
+
               .col-md-4
                 .form-group
                   label(for='cca') Name of CCA
@@ -330,8 +334,20 @@ html(lang='en')
                 .form-group
                   label(for='endtime') End Time
                   input#endtime.form-control(type='time', name='endtime', required='required', max='2019-12-31T00:00')
+              
+              .col-md-12
+                .form-group
+                  label(for='others') Others (NA if nothing to say)
+                  input#others.form-control(type='text', name='others', required='required')
+              
+              .col-md-12
+                .form-group
+                  input#check(type='checkbox', name='check', value='check', required='required')
+                  label(for='check') &nbsp; I have read and agreed with the venue bookings rule.
+                  
+            .row.justify-content-center
               .form-group
-                input#submitbtn.btn.btn-primary.py-3.px-5(type='submit', value='Book Now!')
+                input#submitbtn.btn.btn-primary.py-3.px-5(align='center', type='submit', value='Book Now!')
  
     script.
       var today = new Date();
